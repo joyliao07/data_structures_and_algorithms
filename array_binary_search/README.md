@@ -18,7 +18,7 @@ Write a function called BinarySearch which takes in an array and a value. Return
 2 - Loop through the list. When the item in the list matches the value, flip the status to be True. Return the position of the matched list item.
 3 - If the status is still false after the loop, return -1.
 
-![White Boarding](https://octodex.github.com/images/yaktocat.png)
+![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/master/assets/03_array_binary_search_(1).jpg)
 
 #API
 
