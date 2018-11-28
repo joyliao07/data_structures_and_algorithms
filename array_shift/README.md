@@ -1,19 +1,28 @@
-## Array_Shift
+## Code Challenge - Array_shift
+401python code challenge 02
 
-##Instruction From Canvas:
+Author: Joyce Liao
+Version: 1.0.0
+
+#overview
 Insert and shift an array in middle at index
 
-#Feature Tasks
+#getting started
 Write a function called insertShiftArray which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
 
-#Example
-Input	Output
-[2,4,6,8], 5	[2,4,5,6,8]
-[4,8,15,23,42], 16	[4,8,15,16,23,42]
+#architecture
+1 - If the array has an even number of elements, insert the value in the middle
+2 - f the array has an odd number of elements, inswert the value right after the middle element
+3 - Return the new array
 
-#Structure and Testing
-Utilize the Single-responsibility principle: any methods you write should be clean, reusable, abstract component parts to the whole challenge. You will be given feedback and marked down if you attempt to define a large, complex algorithm in one function definition. You may round up in the event that the array has an odd number of indexes.
+#API
 
-Write at least three test assertions for each method that you define.
 
-Ensure your tests are passing before you submit your solution.
+#change log
+
+
+2018-11-27 Repo is created
+
+
+
+
