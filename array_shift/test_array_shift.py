@@ -1,5 +1,8 @@
+"""To Test array_shift."""
+
+
 def test_insertShiftArray_even_element_array():
-    #THIS IS TO TEST INSERTSHIFTARRAY WITH AN INPUT LIST THAT HAS AN EVEN NUMBER OF ITEMS
+    """TO TEST WITH AN INPUT LIST THAT HAS AN EVEN NUMBER OF ITEMS."""
     from .array_shift import insertShiftArray
     input = [1, 2, 3, 4]
     value = 7
@@ -8,7 +11,7 @@ def test_insertShiftArray_even_element_array():
 
 
 def test_insertShiftArray_odd_element_array():
-    #THIS IS TO TEST INSERTSHIFTARRAY WITH AN INPUT LIST THAT HAS AN ODD NUMBER OF ITEMS
+    """TO TEST WITH AN INPUT LIST THAT HAS AN ODD NUMBER OF ITEMS."""
     from .array_shift import insertShiftArray
     input = [1, 2, 3, 4, 5]
     value = 7
@@ -17,10 +20,9 @@ def test_insertShiftArray_odd_element_array():
 
 
 def test_insertShiftArray_type_error():
-    #THIS IS TO TEST INSERTSHIFTARRAY WITH AN INPUT THAT IS NOT A LIST
+    """TO TEST WITH AN INPUT OF TYPE ERROR."""
     from .array_shift import insertShiftArray
     input = 'wrong type'
     value = 7
     expected = 'TypeError'
     assert insertShiftArray(input, value) == expected
-
