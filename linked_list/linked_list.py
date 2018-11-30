@@ -40,13 +40,15 @@ class LinkedList(object):
     def includes(self, searched):
         """ To tell whether the ll includes the designated valude.
         """
-        p = self.head.val
-        if p is None:
-            return False
-        while p is not None:
-            if p == searched:
+        current = self.head
+
+        while current:
+            if current.val == searched:
                 return True
-            p = p._next
+            # elif not current._next:
+            #     return False
+            # else:
+            current = current._next
         return False
 
 

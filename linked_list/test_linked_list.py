@@ -59,10 +59,13 @@ def test_iterable_as_argument():
 
 
 def test_includes_work(small_ll):
-    test = small_ll.includes(4)
+    test = small_ll.includes(3)
     assert test
 
 
+def test_includes_return_false(small_ll):
+    test = small_ll.includes(11)
+    assert test is False
 
 
 
