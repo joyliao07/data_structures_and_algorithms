@@ -1,5 +1,4 @@
 """This module contains a class LinkedList which generate new nodes from an empty ll."""
-# from node import Node
 from .node import Node
 
 
@@ -31,29 +30,16 @@ class LinkedList(object):
         return self._size
 
     def insert(self, value):
-        """
-        """
-        # node = Node(value)... 
+        """To insert a value to the linked list."""
         self.head = Node(value, self.head)
         self._size += 1
 
     def includes(self, searched):
-        """ To tell whether the ll includes the designated valude.
-        """
+        """ To tell whether the ll includes the designated valude."""
         current = self.head
 
         while current:
             if current.val == searched:
                 return True
-            # elif not current._next:
-            #     return False
-            # else:
             current = current._next
         return False
-
-
-print(LinkedList([1, 2, 3]))
-
-
-
-
