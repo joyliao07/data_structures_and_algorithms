@@ -43,3 +43,25 @@ class LinkedList(object):
                 return True
             current = current._next
         return False
+
+    def append(self, newVal):
+        """To insert newVal to the tail of the linked list."""
+        current = self.head
+        if current is None:
+            self.head = Node(newVal)
+            return
+
+
+        while current._next:
+            current = current._next
+
+        current._next = Node(newVal)
+
+        # return self
+
+
+
+
+
+
+

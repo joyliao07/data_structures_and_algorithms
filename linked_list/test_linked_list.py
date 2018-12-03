@@ -93,3 +93,29 @@ def test_includes_return_false(small_ll):
     """To test includes method when the linked list does not include the desired value."""
     test = small_ll.includes(11)
     assert test is False
+
+
+def test_append_valid(empty_ll):
+    """To test append method with valid inputs."""
+    #  = [1, 3, 2]
+    newVal = 5
+    expected = 5
+    empty_ll.append(newVal)
+    assert empty_ll.head.val == expected
+    # assert empty_ll.head == None
+
+
+def test_append_nonempty_list():
+    """To test append method with valid inputs."""
+    lst = LinkedList()
+    lst.append('apple')
+    lst.append('banana')
+    
+    assert lst.head.val == 'apple'
+    assert lst.head._next.val == 'banana'
+
+
+def test_is_right_type():
+    lst = LinkedList()
+    assert type(lst) == LinkedList
+    assert isinstance(lst, LinkedList)
