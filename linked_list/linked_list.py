@@ -107,7 +107,42 @@ class LinkedList(object):
             print('There is no matched value in the linked list.')
         return
 
-# #FOR RUNNING PYTHON LINKED_LIST.PY IN THE TERMINAL:
+    def kth_from_end(self, k):
+        """To return the value of the kth node from the end."""
+        try:
+            ruler = self.head._next
+        except:
+            print('The kth value is not available.')
+            return('The kth value is not available.')
+
+        if k < 0:
+            print('Please enter a non-negative integer as the argument.')
+            return('Please enter a non-negative integer as the argument.')
+
+        try:
+            for i in range(k):
+                ruler = ruler._next
+        except:
+            print('The kth value is not available.')
+            return('The kth value is not available.')
+
+        current = self.head
+        while ruler:
+            current = current._next
+            ruler = ruler._next
+        else:
+            print(current.val)
+            return(current.val)
+
+
+
+
+
+
+
+
+
+#FOR RUNNING PYTHON LINKED_LIST.PY IN THE TERMINAL:
 # fix = LinkedList()
 # fix.append('apple')
 # fix.append('banana')
@@ -115,7 +150,7 @@ class LinkedList(object):
 # fix.append('date')
 # fix.append('elderberry')
 
-# fix.insertAfter('cannotfind', 'after-date')
+# fix.kth_from_end(-1)
 
 
 # #TO PRINT:

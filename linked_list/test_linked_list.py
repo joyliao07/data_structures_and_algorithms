@@ -158,7 +158,7 @@ def test_insertBefore_with_no_match_value(capsys):
 def test_insertAfter_with_empty_ll():
     """To test insertAfter with an empty linked list."""
     lst = LinkedList()
-    lst.insertBefore(None, 5)
+    lst.insertAfter(None, 5)
     assert lst.head.val == 5
 
 
@@ -177,7 +177,6 @@ def test_insertAfter_with_valid_inputs():
     assert lst.head._next._next._next._next.val == 'elderberry'
 
 
-
 def test_insertAfter_with_no_match_value(capsys):
     """To test insertAfter with no matched value in the linked list."""
     lst = LinkedList()
@@ -188,6 +187,43 @@ def test_insertAfter_with_no_match_value(capsys):
     lst.insertAfter('robot', 'banana')
     captured = capsys.readouterr()
     assert captured.out == 'There is no matched value in the linked list.\n'
+
+
+def test_kth_from_end_with_empty_ll(capsys):
+    """To test kth_from_end with an empty linked list."""
+    lst = LinkedList()
+    lst.kth_from_end(5)
+    captured = capsys.readouterr()
+    assert captured.out == 'The kth value is not available.\n'
+
+
+def test_kth_from_end_with_valid_inputs():
+    """To test kth_from_end with valid inputs."""
+    lst = LinkedList()
+    lst.append('apple')
+    lst.append('banana')
+    lst.append('cucumber')
+    lst.append('date')
+    lst.append('elderberry')
+    assert lst.kth_from_end(3) == 'banana'
+
+
+def test_kth_from_end_with_no_match_value(capsys):
+    """To test kth_from_end with no matched value in the linked list."""
+    lst = LinkedList()
+    lst.append('apple')
+    lst.append('banana')
+    lst.append('cucumber')
+    lst.append('date')
+    lst.append('elderberry')
+    lst.kth_from_end(5)
+    captured = capsys.readouterr()
+    assert captured.out == 'The kth value is not available.\n'
+
+
+
+
+
 
 
 
