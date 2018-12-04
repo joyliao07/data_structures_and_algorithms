@@ -1,6 +1,7 @@
 # Linked List
 401python code 05
 401python code challenge 06
+401python code challenge 07
 
 Author: Joyce Liao
 Version: 1.0.0
@@ -27,6 +28,18 @@ The program can be run with python3.6 installation and can be best operated in a
 ![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/master/assets/06_ll_insertions_(1).jpeg)
 
 ![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/master/assets/06_ll_insertions_(2).jpeg)
+
+    2.6 Define method "kth_from_end"
+![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/ll_kth_from_end/assets/07_ll_kth_from_end.jpeg)
+
+
+
+
+
+
+
+
+
 ## API
 
 
@@ -37,3 +50,4 @@ The program can be run with python3.6 installation and can be best operated in a
 
 2018-11-30 code 05
 2018-12-03 code challenge 06
+2018-12-04 code challenge 07
