@@ -93,3 +93,102 @@ def test_includes_return_false(small_ll):
     """To test includes method when the linked list does not include the desired value."""
     test = small_ll.includes(11)
     assert test is False
+
+
+def test_append_valid(empty_ll):
+    """To test append method with an empty linked list."""
+    newVal = 5
+    expected = 5
+    empty_ll.append(newVal)
+    assert empty_ll.head.val == expected
+
+
+def test_append_nonempty_list():
+    """To test append method with valid inputs."""
+    lst = LinkedList()
+    lst.append('apple')
+    lst.append('banana')
+    assert lst.head.val == 'apple'
+    assert lst.head._next.val == 'banana'
+
+
+def test_is_right_type():
+    """To test append method producing the correct data type."""
+    lst = LinkedList()
+    lst.append('apple')
+    lst.append('banana')
+    assert type(lst) == LinkedList
+    assert isinstance(lst, LinkedList)
+
+
+def test_insertBefore_with_empty_ll():
+    """To test insertBefore with an empty linked list."""
+    lst = LinkedList()
+    lst.insertBefore(None, 5)
+    assert lst.head.val == 5
+
+
+def test_insertBefore_with_valid_inputs():
+    """To test insertBefore with valid inputs."""
+    lst = LinkedList()
+    lst.append('apple')
+    lst.append('cucumber')
+    lst.append('date')
+    lst.append('elderberry')
+    lst.insertBefore('cucumber', 'banana')
+    assert lst.head.val == 'apple'
+    assert lst.head._next.val == 'banana'
+    assert lst.head._next._next.val == 'cucumber'
+    assert lst.head._next._next._next.val == 'date'
+    assert lst.head._next._next._next._next.val == 'elderberry'
+
+
+def test_insertBefore_with_no_match_value(capsys):
+    """To test insertBefore with no matched value in the linked list."""
+    lst = LinkedList()
+    lst.append('apple')
+    lst.append('cucumber')
+    lst.append('date')
+    lst.append('elderberry')
+    lst.insertBefore('robot', 'banana')
+    captured = capsys.readouterr()
+    assert captured.out == 'There is no matched value in the linked list.\n'
+
+    
+def test_insertAfter_with_empty_ll():
+    """To test insertAfter with an empty linked list."""
+    lst = LinkedList()
+    lst.insertBefore(None, 5)
+    assert lst.head.val == 5
+
+
+def test_insertAfter_with_valid_inputs():
+    """To test insertAfter with valid inputs."""
+    lst = LinkedList()
+    lst.append('apple')
+    lst.append('banana')
+    lst.append('cucumber')
+    lst.append('elderberry')
+    lst.insertAfter('cucumber', 'date')
+    assert lst.head.val == 'apple'
+    assert lst.head._next.val == 'banana'
+    assert lst.head._next._next.val == 'cucumber'
+    assert lst.head._next._next._next.val == 'date'
+    assert lst.head._next._next._next._next.val == 'elderberry'
+
+
+
+def test_insertAfter_with_no_match_value(capsys):
+    """To test insertAfter with no matched value in the linked list."""
+    lst = LinkedList()
+    lst.append('apple')
+    lst.append('cucumber')
+    lst.append('date')
+    lst.append('elderberry')
+    lst.insertAfter('robot', 'banana')
+    captured = capsys.readouterr()
+    assert captured.out == 'There is no matched value in the linked list.\n'
+
+
+
+
