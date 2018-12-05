@@ -72,8 +72,8 @@ class LinkedList(object):
         self._size += 1
 
 
-ll_A = LinkedList([1, 2, 3])
-ll_B = LinkedList(['A', 'B', 'C', 'D', 'E'])
+ll_A = LinkedList([1, 2, 3, 4, 5])
+ll_B = LinkedList(['A', 'B', 'C'])
 
 
 def ll_merge(ll_A, ll_B):
@@ -82,35 +82,36 @@ def ll_merge(ll_A, ll_B):
     A = ll_A.head
     B = ll_B.head
     new = LinkedList()
-    new.head = Node('haha')
-
-    # #THIS WORKING:
-    # new.head = Node('haha')
-    # new.head._next = Node(A.val)
 
     current = new.head
     while A or B:
         if A:
-            current._next = Node(A.val)
-            print('current in A is: ', current._next.val)
-            current = current._next
-            A = A._next
+            if current is None:
+                current = Node(A.val)
+                print('current in A is: ', current.val)
+                A = A._next
+            else:
+                current._next = Node(A.val)
+                current = current._next
+                print('current in A is: ', current.val)
+                A = A._next
+            
+            new.append(current)
             
         if B:
             current._next = Node(B.val)
-            print('current in B is: ', B)
             current = current._next
+            print('current in B is: ', current.val)
             B = B._next
 
-
-
-
+            new.append(current)
+    
     print('start to print:')
-
-    current = new.head
-    while current:
-        print(current.val)
-        current = current._next
+    import pdb; pdb.set_trace()
+    to_print = new.head
+    while to_print:
+        print(to_print.val)
+        to_print = to_print._next
 
     return
 
