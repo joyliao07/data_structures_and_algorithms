@@ -72,16 +72,59 @@ class LinkedList(object):
         self._size += 1
 
 
+ll_A = LinkedList([1, 2, 3])
+ll_B = LinkedList(['A', 'B', 'C'])
+
+
+def ll_merge(ll_A, ll_B):
+    """
+    """
+    A = ll_A.head
+    B = ll_B.head
+    new = LinkedList()
+    new.head = Node('haha')
+
+    # #THIS WORKING:
+    # new.head = Node('haha')
+    # new.head._next = Node(A.val)
+
+    current = new.head
+    while A or B:
+        if A:
+            current._next = Node(A.val)
+            print('current in A is: ', current._next.val)
+            current = current._next
+            # print('test2: ', current._next.val)
+            A = A._next
+            if B:
+                current._next = Node(B.val)
+                print('current in B is: ', B)
+                current = current._next
+                B = B._next
+
+                P = new.head
+                while P:
+                    print(P.val)
+                    P = P._next
+
+        # if B:
+        #     current._next = None
+        # return
+
+
+    print('start to print:')
+
+    current = new.head
+    while current:
+        print(current.val)
+        current = current._next
+
+    return
 
 
 
 
-
-test = LinkedList([3, 2, 3])
-
-print(test.head.val)
-
-
+ll_merge(ll_A, ll_B)
 
 
 
