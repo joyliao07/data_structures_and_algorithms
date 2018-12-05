@@ -73,7 +73,7 @@ class LinkedList(object):
 
 
 ll_A = LinkedList([1, 2, 3])
-ll_B = LinkedList(['A', 'B', 'C'])
+ll_B = LinkedList(['A', 'B', 'C', 'D', 'E'])
 
 
 def ll_merge(ll_A, ll_B):
@@ -94,22 +94,15 @@ def ll_merge(ll_A, ll_B):
             current._next = Node(A.val)
             print('current in A is: ', current._next.val)
             current = current._next
-            # print('test2: ', current._next.val)
             A = A._next
-            if B:
-                current._next = Node(B.val)
-                print('current in B is: ', B)
-                current = current._next
-                B = B._next
+            
+        if B:
+            current._next = Node(B.val)
+            print('current in B is: ', B)
+            current = current._next
+            B = B._next
 
-                P = new.head
-                while P:
-                    print(P.val)
-                    P = P._next
 
-        # if B:
-        #     current._next = None
-        # return
 
 
     print('start to print:')
