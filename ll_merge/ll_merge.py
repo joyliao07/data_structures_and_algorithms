@@ -1,4 +1,4 @@
-"""Code Challenge 08"""
+"""Code Challenge 08 ll_merge."""
 # from ..linked_list.linked_list import LinkedList
 # from ..linked_list.node import Node
 
@@ -71,13 +71,14 @@ class LinkedList(object):
         current._next = Node(newVal)
         self._size += 1
 
-
-ll_A = LinkedList([1, 2, 3, 4, 5])
-ll_B = LinkedList(['A', 'B', 'C'])
+#####################################
+###         ll_merge():           ###
+###                               ###
+#####################################
 
 
 def ll_merge(ll_A, ll_B):
-    """
+    """The function will take in two linked list, zip them, and return the result as one linked list.
     """
     A = ll_A.head
     B = ll_B.head
@@ -88,12 +89,12 @@ def ll_merge(ll_A, ll_B):
         if A:
             if current is None:
                 current = Node(A.val)
-                print('current in A is: ', current.val)
+                # print('current in A is: ', current.val)
                 A = A._next
             else:
                 current._next = Node(A.val)
                 current = current._next
-                print('current in A is: ', current.val)
+                # print('current in A is: ', current.val)
                 A = A._next
             
             new.append(current)
@@ -101,24 +102,28 @@ def ll_merge(ll_A, ll_B):
         if B:
             current._next = Node(B.val)
             current = current._next
-            print('current in B is: ', current.val)
+            # print('current in B is: ', current.val)
             B = B._next
 
             new.append(current)
     
-    print('start to print:')
-    import pdb; pdb.set_trace()
-    to_print = new.head
-    while to_print:
-        print(to_print.val)
-        to_print = to_print._next
+    # print('start to print:')
+    # # import pdb; pdb.set_trace()
+    # to_print = new.head
+    # while to_print:
+    #     print(to_print.val)
+    #     to_print = to_print._next
+    return new
 
-    return
+#####################################
+###   Call function to print:     ###
+###                               ###
+#####################################
 
+# ll_A = LinkedList([1, 2, 3, 4, 5])
+# ll_B = LinkedList(['A', 'B', 'C'])
 
-
-
-ll_merge(ll_A, ll_B)
+# ll_merge(ll_A, ll_B)
 
 
 
