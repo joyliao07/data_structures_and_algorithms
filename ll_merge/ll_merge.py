@@ -89,23 +89,20 @@ def ll_merge(ll_A, ll_B):
         if A:
             if current is None:
                 current = Node(A.val)
-                # print('current in A is: ', current.val)
                 A = A._next
             else:
                 current._next = Node(A.val)
                 current = current._next
-                # print('current in A is: ', current.val)
                 A = A._next
             
-            new.append(current)
+            new.append(current.val)
             
         if B:
             current._next = Node(B.val)
             current = current._next
-            # print('current in B is: ', current.val)
             B = B._next
 
-            new.append(current)
+            new.append(current.val)
     
     # print('start to print:')
     # # import pdb; pdb.set_trace()
