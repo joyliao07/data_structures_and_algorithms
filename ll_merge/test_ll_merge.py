@@ -39,6 +39,8 @@ def test_ll_merge_with_valid_inputs():
     result = ll_merge(ll_A, ll_B)
     assert len(result) == 8
     assert type(result) == LinkedList
+    assert type(result.head) == Node
+    assert result.head.val == 5
 
 
 def test_ll_merge_with_one_empty_ll():
