@@ -3,6 +3,12 @@ from .stack import Stack
 import pytest
 
 
+@pytest.fixture
+def empty_stack():
+    """To create an empty queue for testing purpose."""
+    return Stack()
+
+
 def test_stack_exist():
     """To test that the class Stack exists."""
     assert Stack
@@ -41,6 +47,14 @@ def test_pop_with_valid_input():
     assert stack_new.top.value == 2
 
 
+def test_pop_with_valid_input_2():
+    """To test pop method with valid input."""
+    stack_new = Stack([1, 2, 3])
+    result = stack_new.pop()
+    assert result.value == 3
+    assert result.next_node is None
+
+
 def test_pop_with_empty_stack():
     """To test pop method with invalid input."""
     stack_new = Stack()
@@ -58,3 +72,8 @@ def test_peek_with_empty_stack():
     """To test peek method with invalid input."""
     stack_new = Stack()
     assert stack_new.peek() == f'Input must be a non-empty stack.'
+
+
+
+
+

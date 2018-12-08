@@ -47,7 +47,7 @@ class Stack(object):
             self.top = old_top.next_node
             old_top.next_node = None
             self._size -= 1
-            return old_top.value
+            return old_top
         else:
             return f'Input stack cannot be empty.'
 
