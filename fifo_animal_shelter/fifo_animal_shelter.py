@@ -14,7 +14,7 @@ class Node(object):
         return f'<NODE: { self.value }>'
 
 
-class Queue(object):
+class AnimalShelter(object):
     """To create a node for a Queue and other related methods."""
 
     def __init__(self, iterable=None):
@@ -61,29 +61,27 @@ class Queue(object):
         """
         """
         if self.front is None:
-            return f'Input must be a non-empty queue.'
+            raise TypeError(f'Input must be a non-empty queue.')
         else:
-            current = self.front
+            current = Node(None, self.front)
             loop = 0
-            while current:
-                print('current.value is: ', current.value)
-                print('current.next.value is: ', current.next_node.value)
-                if current.value == val:
+            while current.next_node:
+                if current.next_node.value == val:
                     if loop == 0:
                         self.front = self.front.next_node
-                        current.next_node = None
-                        print('hit loop == 0')
-                        return current
+                        current.next_node.next_node = None
+                        return current.next_node
                     else:
-                        # to remove the middle node
-                        print('to work on the else...')
-
-
+                        if self.rear == current.next_node:
+                            self.rear = current
+                        temp = current.next_node
+                        current.next_node = current.next_node.next_node
+                        # print('deleted node value is: ', temp.value)
+                        return temp
                 else:
                     loop = loop + 1
                     current = current.next_node
-                    
-                # return
+
 
 
 ############################################
@@ -91,33 +89,16 @@ class Queue(object):
 ####                                    ####
 ############################################
 
-test_queue = Queue([1, 2, 3])
-test_queue.dequeue(2)
+# test_queue = AnimalShelter([1, 2, 3, 4, 5])
+# test_queue.enqueue(6)
+# test_queue.enqueue(7)
+# test_queue.dequeue(7)
 
-current = test_queue.front
-while current:
-    print(current.value)
-    current = current.next_node
-
-
-print('front: ', test_queue.front.value)
-print('rear: ', test_queue.rear.value)
+# current = test_queue.front
+# while current:
+#     print(current.value)
+#     current = current.next_node
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# print('front: ', test_queue.front.value)
+# print('rear: ', test_queue.rear.value)
