@@ -22,7 +22,7 @@ The program can be run with python3.6 installation and can be best operated in a
 3. enqueue()
 4. dequeue()
 
-![White Boarding]()
+![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/fifo_animal_shelter/assets/12_fifo_animal_shelter.jpeg)
 
 
 
