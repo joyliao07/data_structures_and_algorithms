@@ -20,7 +20,7 @@ The program can be run with python3.6 installation and can be best operated in a
 3. Set up enqueue.
 4. Set up dequeue.
 
-
+![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/master/assets/11_queue_with_stack.jpeg)
 
 ## API
 
