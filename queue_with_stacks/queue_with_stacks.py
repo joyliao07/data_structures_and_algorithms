@@ -71,16 +71,18 @@ class PseudoQueue(object):
 
     def enqueue(self, value):
         self.stack_1.push(value)
+        self.rear = self.stack_1.top
 
     def dequeue(self):
         while self.stack_1.top:
-            self.stack_2.push(self.stack_1.pop())
+            self.stack_2.push(self.stack_1.pop().value)
 
         popped = self.stack_2.pop()
 
         while self.stack_2.top:
-            self.stack_1.push(self.stack_2.pop())
+            self.stack_1.push(self.stack_2.pop().value)
 
+        self.rear = self.stack_1.top
         return popped
 
 
