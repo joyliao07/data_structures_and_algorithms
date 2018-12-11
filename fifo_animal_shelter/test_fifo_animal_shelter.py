@@ -1,0 +1,27 @@
+"""This module contains class AnimalShelter that works like a queue."""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
