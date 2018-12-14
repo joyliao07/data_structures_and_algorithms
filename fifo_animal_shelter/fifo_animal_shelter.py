@@ -44,6 +44,8 @@ class AnimalShelter(object):
     def enqueue(self, value):
         """
         """
+        if value is not 'dog' and value is not 'cat':
+            raise TypeError(f'The input must be dog or cat.')
         if self.front is None:
             new_node = Node(value)
             self.front = new_node
@@ -62,6 +64,8 @@ class AnimalShelter(object):
         """
         if self.front is None:
             raise TypeError(f'Input must be a non-empty queue.')
+        if val is not 'dog' and val is not 'cat':
+            raise TypeError(f'The val must be dog or cat.')
         else:
             current = Node(None, self.front)
             loop = 0
@@ -76,7 +80,6 @@ class AnimalShelter(object):
                             self.rear = current
                         temp = current.next_node
                         current.next_node = current.next_node.next_node
-                        # print('deleted node value is: ', temp.value)
                         return temp
                 else:
                     loop = loop + 1
@@ -89,10 +92,10 @@ class AnimalShelter(object):
 ####                                    ####
 ############################################
 
-# test_queue = AnimalShelter([1, 2, 3, 4, 5])
-# test_queue.enqueue(6)
-# test_queue.enqueue(7)
-# test_queue.dequeue(7)
+# test_queue = AnimalShelter(['dog', 'dog', 'cat', 'cat', 'cat'])
+# test_queue.enqueue('dog')
+# test_queue.dequeue('dog')
+# test_queue.dequeue('cat')
 
 # current = test_queue.front
 # while current:
