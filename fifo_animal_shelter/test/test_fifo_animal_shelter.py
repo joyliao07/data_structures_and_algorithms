@@ -17,107 +17,73 @@ def test_class_exist():
 
 def test_str_method_for_node():
     """To test the output of str method."""
-    short = Node(1)
-    assert str(short) == '1'
+    short = Node('dog')
+    assert str(short) == 'dog'
 
 
 def test_repr_method_for_node():
     """To test the output of repr method."""
-    short = Node(1)
-    assert repr(short) == '<NODE: 1>'
+    short = Node('dog')
+    assert repr(short) == '<NODE: dog>'
 
 
 def test_repr_method_for_animalshelter():
     """To test the output of repr method."""
-    short = AnimalShelter([1])
-    assert repr(short) == '<Queue front: 1>'
+    short = AnimalShelter(['dog'])
+    assert repr(short) == '<Queue front: dog>'
 
 
 def test_str_method():
     """To test the output of str method."""
-    short = AnimalShelter([1, 2, 3])
-    assert str(short) == f'Queue: Value of the front Queue is: 1'
+    short = AnimalShelter(['dog', 'cat', 'cat'])
+    assert str(short) == f'Queue: Value of the front Queue is: dog'
 
 
 def test_size_method():
     """To test the size method."""
-    short = AnimalShelter([1, 2, 3])
+    short = AnimalShelter(['dog', 'cat', 'cat'])
     assert len(short) == 3
 
 
 def test_enqueue_with_valid_input():
     """To test enqueue method with valid input."""
     queue_new = AnimalShelter()
-    queue_new.enqueue(5)
-    assert queue_new.front.value == 5
+    queue_new.enqueue('dog')
+    assert queue_new.front.value == 'dog'
 
 
 def test_enqueue_with_valid_input_2():
     """To test enqueue method with valid input."""
-    queue_new = AnimalShelter([1, 2, 3])
-    queue_new.enqueue(4)
-    queue_new.enqueue(5)
-    assert queue_new.rear.value == 5
+    queue_new = AnimalShelter(['dog', 'dog', 'dog'])
+    queue_new.enqueue('cat')
+    queue_new.enqueue('cat')
+    assert queue_new.rear.value == 'cat'
 
 
 def test_enqueue_with_list_input():
     """To test enqueue method with a list input."""
     queue_new = AnimalShelter()
-    queue_new.enqueue([1, 2, 3])
-    assert queue_new.front.value == [1, 2, 3]
+    with pytest.raises(TypeError) as excinfo:
+        queue_new.enqueue(['cat', 'cat', 'cat'])
+        assert str(excinfo.value) == (f'The input must be dog or cat.')
 
 
 def test_dequeue_with_valid_input():
     """To test dequeue method with valid input."""
-    new_queue = AnimalShelter(['apple', 'banana', 'cucumber'])
-    new_queue.dequeue('banana')
-    assert new_queue.front.value == 'apple'
-    assert new_queue.rear.value == 'cucumber'
-
-
-def test_dequeue_with_valid_input_2():
-    """To test dequeue method with valid input."""
-    new_queue = AnimalShelter(['apple', 'banana', 'cucumber'])
-    result = new_queue.dequeue('cucumber')
-    assert result.value == 'cucumber'
+    new_queue = AnimalShelter(['cat', 'cat', 'dog'])
+    new_queue.dequeue('dog')
+    assert new_queue.front.value == 'cat'
+    assert new_queue.rear.value == 'cat'
 
 
 def test_dequeue_with_valid_input_3():
     """To test dequeue method with valid input."""
-    new_queue = AnimalShelter(['apple', 'banana', 'cucumber'])
-    result = new_queue.dequeue('apple')
-    assert result.value == 'apple'
+    new_queue = AnimalShelter(['cat', 'cat', 'dog'])
+    result = new_queue.dequeue('cat')
+    assert result.value == 'cat'
 
 
 def test_dequeue_with_empty_queue(empty_queue):
     """To test dequeue method with invalid input."""
     assert TypeError(f'Input must be a non-empty queue.')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
