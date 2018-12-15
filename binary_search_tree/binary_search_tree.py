@@ -84,22 +84,46 @@ class BST(object):
 
         insersion(self.root, val)
 
+    def in_order_traversal(self, node=None):
+        if node.left:
+            self.in_order_traversal(node.left)
+        print(node.val)
+        if node.right:
+            self.in_order_traversal(node.right)
+
+    def pre_order_traversal(self, node=None):
+        print(node.val)
+        if node.left:
+            self.pre_order_traversal(node.left)
+        if node.right:
+            self.pre_order_traversal(node.right)
+        
+
+
+
+
+
+
+
+
 
 
 new_tree = BST([10, 12, 11, 15, 20, 17])
 
-# 10
-print(new_tree.root.val)
-# 12
-print(new_tree.root.right.val)
-# 11
-print(new_tree.root.right.left.val)
-# 15
-print(new_tree.root.right.right.val)
-# 20
-print(new_tree.root.right.right.right.val)
-# 17
-print(new_tree.root.right.right.right.left.val)
+# # 10
+# print(new_tree.root.val)
+# # 12
+# print(new_tree.root.right.val)
+# # 11
+# print(new_tree.root.right.left.val)
+# # 15
+# print(new_tree.root.right.right.val)
+# # 20
+# print(new_tree.root.right.right.right.val)
+# # 17
+# print(new_tree.root.right.right.right.left.val)
+
+new_tree.pre_order_traversal(new_tree.root)
 
 
 
@@ -107,9 +131,8 @@ print(new_tree.root.right.right.right.left.val)
 
 
 
-
-
-
+# IN-ORDER BASED ON [10, 12, 11, 15, 20, 17]: 10, 11, 12, 15, 17, 20
+# PRE-ORDER BASED ON [10, 12, 11, 15, 20, 17]: 10, 12, 11, 15, 20, 17
 
 
 
