@@ -9,7 +9,7 @@ Version: 1.0.0
 
 
 ## OVERVIEW
-Create a function that produces binary trees.
+Create a function that produces and traverse binary trees.
 
 
 ## GETTING STARTED

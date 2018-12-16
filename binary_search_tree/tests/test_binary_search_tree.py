@@ -1,4 +1,4 @@
-"""This module will test result of class AnimalShelter and its methods."""
+"""This module will test result of class BST and its methods."""
 from ..binary_search_tree import Node, BST
 import pytest
 
@@ -59,6 +59,14 @@ def test_add_node_with_valid_input_2():
     assert tree_new.root.val == 100
 
 
+def test_in_order_with_empty_input():
+    """To test in_order method with an empty tree."""
+    tree_new = BST()
+    with pytest.raises(TypeError) as err:
+        tree_new.in_order_traversal(tree_new.root)
+        assert str(err.value) == (f'There is no node to traverse.')
+
+
 def test_in_order_with_valid_input(capsys):
     """To test in_order method with valid input."""
     tree_new = BST([10, 12, 11, 15, 20, 17])
@@ -67,22 +75,20 @@ def test_in_order_with_valid_input(capsys):
     assert captured.out == '10\n11\n12\n15\n17\n20\n'
 
 
-def test_in_order_with_empty_input():
+def test_in_order_with_valid_input_edge_case(capsys):
     """To test in_order method with valid input."""
-    tree_new = BST()
+    tree_new = BST([10])
     tree_new.in_order_traversal(tree_new.root)
-    assert TypeError(f'Please pass in a valid tree.')
-    # assert TypeError(f'Input must be a non-empty queue.')
+    captured = capsys.readouterr()
+    assert captured.out == '10\n'
 
 
-
-
-
-
-
-
-
-
+def test_pre_order_with_empty_input():
+    """To test pre_order method with an empty tree."""
+    tree_new = BST()
+    with pytest.raises(TypeError) as err:
+        tree_new.pre_order_traversal(tree_new.root)
+        assert str(err.value) == (f'There is no node to traverse.')
 
 
 def test_pre_order_with_valid_input(capsys):
@@ -93,6 +99,22 @@ def test_pre_order_with_valid_input(capsys):
     assert captured.out == '10\n12\n11\n15\n20\n17\n'
 
 
+def test_pre_order_with_valid_input_edge_case(capsys):
+    """To test in_order method with valid input."""
+    tree_new = BST([10])
+    tree_new.pre_order_traversal(tree_new.root)
+    captured = capsys.readouterr()
+    assert captured.out == '10\n'
+
+
+def test_post_order_with_empty_input():
+    """To test post_order method with an empty tree."""
+    tree_new = BST()
+    with pytest.raises(TypeError) as err:
+        tree_new.post_order_traversal(tree_new.root)
+        assert str(err.value) == (f'There is no node to traverse.')
+
+
 def test_post_order_with_valid_input(capsys):
     """To test in_order method with valid input."""
     tree_new = BST([10, 12, 11, 15, 20, 17])
@@ -101,3 +123,9 @@ def test_post_order_with_valid_input(capsys):
     assert captured.out == '11\n17\n20\n15\n12\n10\n'
 
 
+def test_post_order_with_valid_input_edge_case(capsys):
+    """To test in_order method with valid input."""
+    tree_new = BST([10])
+    tree_new.post_order_traversal(tree_new.root)
+    captured = capsys.readouterr()
+    assert captured.out == '10\n'
