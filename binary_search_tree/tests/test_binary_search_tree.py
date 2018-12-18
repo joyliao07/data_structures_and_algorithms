@@ -1,5 +1,5 @@
 """This module will test result of class BST and its methods."""
-from ..binary_search_tree import Node, BST
+from ..binary_search_tree import NodeTree, NodeQueue, Queue, BST
 import pytest
 
 
@@ -16,13 +16,13 @@ def test_class_exist():
 
 def test_str_method_for_node():
     """To test the output of str method."""
-    short = Node('1')
+    short = NodeTree('1')
     assert str(short) == '1'
 
 
 def test_repr_method_for_node():
     """To test the output of repr method."""
-    short = Node('1')
+    short = NodeTree('1')
     assert repr(short) == '<NODE: 1>'
 
 
@@ -92,7 +92,7 @@ def test_pre_order_with_empty_input():
 
 
 def test_pre_order_with_valid_input(capsys):
-    """To test in_order method with valid input."""
+    """To test pre_order method with valid input."""
     tree_new = BST([10, 12, 11, 15, 20, 17])
     tree_new.pre_order_traversal(tree_new.root)
     captured = capsys.readouterr()
@@ -100,7 +100,7 @@ def test_pre_order_with_valid_input(capsys):
 
 
 def test_pre_order_with_valid_input_edge_case(capsys):
-    """To test in_order method with valid input."""
+    """To test pre_order method with valid input."""
     tree_new = BST([10])
     tree_new.pre_order_traversal(tree_new.root)
     captured = capsys.readouterr()
@@ -116,7 +116,7 @@ def test_post_order_with_empty_input():
 
 
 def test_post_order_with_valid_input(capsys):
-    """To test in_order method with valid input."""
+    """To test post_order method with valid input."""
     tree_new = BST([10, 12, 11, 15, 20, 17])
     tree_new.post_order_traversal(tree_new.root)
     captured = capsys.readouterr()
@@ -124,8 +124,40 @@ def test_post_order_with_valid_input(capsys):
 
 
 def test_post_order_with_valid_input_edge_case(capsys):
-    """To test in_order method with valid input."""
+    """To test post_order method with valid input."""
     tree_new = BST([10])
     tree_new.post_order_traversal(tree_new.root)
+    captured = capsys.readouterr()
+    assert captured.out == '10\n'
+
+
+def test_breadth_first_with_valid_input(capsys):
+    """To test breadth_first method with valid input."""
+    tree_new = BST([10, 12, 11, 15, 20, 17])
+    tree_new.breadth_first(tree_new.root)
+    captured = capsys.readouterr()
+    assert captured.out == '10\n12\n11\n15\n20\n17\n'
+
+
+def test_breadth_first_with_valid_input_2(capsys):
+    """To test breadth_first method with valid input."""
+    tree_new = BST([40, 15, 47, 20, 30, 50, 65])
+    tree_new.breadth_first(tree_new.root)
+    captured = capsys.readouterr()
+    assert captured.out == '40\n15\n47\n20\n50\n30\n65\n'
+
+
+def test_breadth_first_with_empty_input():
+    """To test breadth_first method with an empty tree."""
+    tree_new = BST()
+    with pytest.raises(TypeError) as err:
+        tree_new.breadth_first(tree_new.root)
+        assert str(err.value) == (f'There is no node to traverse.')
+
+
+def test_breadth_first_with_valid_input_edge_case(capsys):
+    """To test breadth_first method with valid input."""
+    tree_new = BST([10])
+    tree_new.breadth_first(tree_new.root)
     captured = capsys.readouterr()
     assert captured.out == '10\n'

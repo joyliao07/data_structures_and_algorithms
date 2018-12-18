@@ -177,19 +177,21 @@ class BST(object):
             print(node.val)
 
     def breadth_first(self, root=None):
-        que = Queue()
-        
-        #PASS IN THE ENTIRE NODE INSTEAD OF VAL INTO ENQUEUE()
-        que.enqueue(root)
+        if root is None:
+            raise TypeError(f'There is no node to traverse.')
+        else:
+            que = Queue()
+            #PASS IN THE ENTIRE NODE INSTEAD OF VAL INTO ENQUEUE()
+            que.enqueue(root)
 
-        while que.front is not None:
-            front = que.dequeue()
+            while que.front is not None:
+                front = que.dequeue()
 
-            print('print operation: ', front.value.val)
-            if front.value.left is not None:
-                que.enqueue(front.value.left)
-            if front.value.right is not None:
-                que.enqueue(front.value.right)
+                print(front.value.val)
+                if front.value.left is not None:
+                    que.enqueue(front.value.left)
+                if front.value.right is not None:
+                    que.enqueue(front.value.right)
     
 
 
