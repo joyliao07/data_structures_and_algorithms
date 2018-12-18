@@ -1,7 +1,7 @@
 """This module contains class BST and its related methods."""
 
 
-class Node(object):
+class NodeTree(object):
     """This class is set up to create new Nodes."""
     def __init__(self, val, left=None, right=None):
         self.val = val
@@ -13,6 +13,71 @@ class Node(object):
 
     def __repr__(self):
         return f'<NODE: { self.val }>'
+
+
+class NodeQueue(object):
+    """This class is set up to create new Nodes."""
+    def __init__(self, value, next_node=None):
+        self.value = value
+        self.next_node = next_node
+
+    def __str__(self):
+        return f'{ self.value }'
+
+    def __repr__(self):
+        return f'<NODE: { self.value }>'
+
+
+class Queue(object):
+    """To create a node for a Queue and other related methods."""
+
+    def __init__(self, iterable=None):
+        self.front = None
+        self.rear = None
+        self._size = 0
+
+        if iterable is None:
+            iterable = []
+
+        if type(iterable) is not list:
+            raise TypeError('Iterable is not a list.')
+
+        for what in iterable:
+            self.enqueue(what)
+
+    def __str__(self):
+        output = f'Queue: Value of the front Queue is: {self.front.value}'
+        return output
+
+    def __repr__(self):
+        return f'<Queue front: { self.front.value }>'
+
+    def enqueue(self, value):
+        """
+        """
+        if self.front is None:
+            new_node = NodeQueue(value)
+            self.front = new_node
+            self.rear = new_node
+            self._size += 1
+            return self
+        else:
+            new_node = NodeQueue(value)
+            self.rear.next_node = new_node
+            self.rear = new_node
+            self._size += 1
+            return self
+
+    def dequeue(self):
+        """
+        """
+        if self.front is None or self.rear is None:
+            return f'Input must be a non-empty queue.'
+        else:
+            temp = self.front
+            self.front = self.front.next_node
+            temp.next_node = None
+            return temp
 
 
 class BST(object):
@@ -46,20 +111,20 @@ class BST(object):
         """
         # print('line 50 start to create new node: ', val)
         if self.root is None:
-            self.root = Node(val)
+            self.root = NodeTree(val)
             # print('root is created outside insersion: ', self.root.val)
             return
 
         def insersion(node, val):
             # print('line 57 start to insert val: ', val)
             if node is None:
-                node = Node(val)
+                node = NodeTree(val)
                 # print('line 60 root is created: ', node.val)
                 return
             if node.val < val:
                 # print('line 63 node.val is: ', node.val)
                 if node.right is None:
-                    node.right = Node(val)
+                    node.right = NodeTree(val)
                     # print('line 66 created node.right: ', node.right.val)
                     return
                 else:
@@ -70,7 +135,7 @@ class BST(object):
             elif node.val > val:
                 # print('line 72 node.val is: ', node.val)
                 if node.left is None:
-                    node.left = Node(val)
+                    node.left = NodeTree(val)
                     # print('line 75 created node.left: ', node.left.val)
                     return
                 else:
@@ -111,10 +176,30 @@ class BST(object):
                 self.post_order_traversal(node.right)
             print(node.val)
 
+    def breadth_first(self, root=None):
+        que = Queue()
+        
+        #PASS IN THE ENTIRE NODE INSTEAD OF VAL INTO ENQUEUE()
+        que.enqueue(root)
+
+        while que.front is not None:
+            front = que.dequeue()
+
+            print('print operation: ', front.value.val)
+            if front.value.left is not None:
+                que.enqueue(front.value.left)
+            if front.value.right is not None:
+                que.enqueue(front.value.right)
+    
+
+
 
 # new_tree = BST([10, 12, 11, 15, 20, 17])
+# two_tree = BST([40, 15, 47, 20, 30, 50, 65])
 
-# new_tree.pre_order_traversal(new_tree.root)
+# two_tree.breadth_first(two_tree.root)
+
 
 # IN-ORDER BASED ON [10, 12, 11, 15, 20, 17]: 10, 11, 12, 15, 17, 20
 # PRE-ORDER BASED ON [10, 12, 11, 15, 20, 17]: 10, 12, 11, 15, 20, 17
+
