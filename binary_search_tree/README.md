@@ -27,7 +27,7 @@ The program can be run with python3.6 installation and can be best operated in a
 5. This class should have the ability to insert
 6. The class has a method for breadth-first traversal
 
-
+![whiteboarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/breadth_first_traversal/assets/17_breadth_first.jpeg)
 
 ## API
 
