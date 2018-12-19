@@ -161,3 +161,27 @@ def test_breadth_first_with_valid_input_edge_case(capsys):
     tree_new.breadth_first(tree_new.root)
     captured = capsys.readouterr()
     assert captured.out == '10\n'
+
+
+def test_find_max_value_with_valid_input_edge_case(capsys):
+    """To test find_max_value method with valid input."""
+    tree_new = BST([10])
+    tree_new.find_maximum_value(tree_new.root)
+    captured = capsys.readouterr()
+    assert captured.out == '10\n'
+
+
+def test_find_max_value_with_valid_input(capsys):
+    """To test find_max_value method with valid input."""
+    tree_new = BST([40, 15, 47, 20, 30, 50, 65])
+    tree_new.find_maximum_value(tree_new.root)
+    captured = capsys.readouterr()
+    assert captured.out == '65\n'
+
+
+def test_find_max_value_with_empty_input():
+    """To test find_max_value method with an empty tree."""
+    tree_new = BST()
+    with pytest.raises(TypeError) as err:
+        tree_new.find_maximum_value(tree_new.root)
+        assert str(err.value) == (f'There is no node to traverse.')

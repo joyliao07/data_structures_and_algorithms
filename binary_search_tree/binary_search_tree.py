@@ -193,13 +193,34 @@ class BST(object):
                 if front.value.right is not None:
                     que.enqueue(front.value.right)
     
+    def find_maximum_value(self, root=None):
+        if root is None:
+            raise TypeError(f'There is no node to traverse.')
+        else:
+            que = Queue()
+            que.enqueue(root)
+            max_val = root.val
+
+            while que.front is not None:
+                front = que.dequeue()
+
+                if max_val < front.value.val:
+                    max_val = front.value.val
+
+                if front.value.left is not None:
+                    que.enqueue(front.value.left)
+                if front.value.right is not None:
+                    que.enqueue(front.value.right)
+            
+            print(max_val)
+            return(max_val)
 
 
 
 # new_tree = BST([10, 12, 11, 15, 20, 17])
-# two_tree = BST([40, 15, 47, 20, 30, 50, 65])
+two_tree = BST([40, 15, 47, 20, 30, 50, 65])
 
-# two_tree.breadth_first(two_tree.root)
+two_tree.find_maximum_value(two_tree.root)
 
 
 # IN-ORDER BASED ON [10, 12, 11, 15, 20, 17]: 10, 11, 12, 15, 17, 20
