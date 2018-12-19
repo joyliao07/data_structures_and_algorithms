@@ -3,6 +3,7 @@
 
 401python code lab 15
 401python code challenge 17
+401python code challenge 18
 
 
 Author: Joyce Liao
@@ -10,9 +11,11 @@ Version: 1.0.0
 
 
 
+
 ## OVERVIEW
 - Create a function that produces and traverse binary trees.
 - Create a function that performs breadth-first traversal to a binary tree.
+- Create a function that finds the max value in the binary tree.
 
 
 ## GETTING STARTED
@@ -26,8 +29,15 @@ The program can be run with python3.6 installation and can be best operated in a
 4. This class should be aware of depth-first traversal methods for in_order, pre_order, and post_order traversals
 5. This class should have the ability to insert
 6. The class has a method for breadth-first traversal
+7. The class has a method to find maximum value in the tree
+
 
 ![whiteboarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/breadth_first_traversal/assets/17_breadth_first.jpeg)
+
+
+![whiteboarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/find-maximum-value-binary-tree/assets/18_find_maximum_value.jpeg)
+
+
 
 ## API
 
@@ -38,5 +48,7 @@ The program can be run with python3.6 installation and can be best operated in a
 
 
 
-2018-12-14
-2018-12-18
+Date: 2018-12-14
+Date: 2018-12-18
+Date: 2018-12-19
+
