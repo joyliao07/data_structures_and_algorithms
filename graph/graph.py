@@ -16,24 +16,30 @@ class Graph:
         # self.graph = iterable
 
     def __repr__(self):
-        pass
+        output = f'<List of vertices: { self.gdict.keys() }>'
+        # <List of vertices: dict_keys(['G', 'B', 'C', 'D', 'E', 'F'])>
+        return output
 
     def __str__(self):
-        pass
+        output = f'The list of vertices are: {self.gdict.keys()}'
+        # "The list of vertices are: dict_keys(['G', 'B', 'C', 'D', 'E', 'F'])"
+        return output
 
     def __len__(self):
-        pass
+        return len(self.gdict.keys())
 
     def add_vert(self, val):
         """
         """
         # add vertice to self.graph (i.e. self.gdict)
+        if type(val) is not float and type(val) is not str:
+            print('Val must be a string or a number.')
+            raise KeyError('Val must be a string or a number.')
         if val in self.gdict:
-            print('vert already exists.')
-            return
-        if val not in self.gdict:
-            self.gdict[val] = {}
-        # check to see if the vert already exists: if so raise exception
+            print('Vert already exists.')
+            raise KeyError('Vert already exists.')
+
+        self.gdict[val] = {}
 
     def has_vert(self, val):
         """
@@ -41,18 +47,15 @@ class Graph:
         if val in self.gdict:
             print(True)
             return(True)
-        if val not in self.gdict:
-            print(False)
-            return(False)
+        print(False)
+        return(False)
 
     def add_edge(self, v1, v2, weight):
         """
         """
         if v1 not in self.gdict:
-            print('There is no existing vert.')
-            return
-        # if v2 not in self.gdict[v1]:
-        #     print('I am going to add an edge!')
+            print('The vert does not exist.')
+            raise KeyError('The vert does not exist.')
         self.gdict[v1][v2] = weight
         print(self.gdict) 
         return self.gdict
@@ -62,35 +65,20 @@ class Graph:
         """
         if val not in self.gdict:
             print('There is no existing vert.')
-            return
-        
-        
+            raise KeyError('There is no existing vert.')
+        print(self.gdict[val].keys())
+        return self.gdict[val].keys()
 
 
-graph_elements = {
-        'A': {'B': 10},
-        'B': {'A': 5, 'D': 15, 'C': 20},
-        'C': {'E': 1},
-        'D': {'A': 5},
-        'E': {'F': 2, 'B': 4},
-        'F': {'D': 11}
-    }
+# graph_elements = {
+#         'A': {'B': 10, 'C': 15},
+#         'B': {'D': 15, 'E': 5, 'C': 2},
+#         'C': {'F': 50, 'G': 25},
+#         'D': {},
+#         'E': {'C': 5},
+#         'F': {'E': 10},
+#         'G': {'F': 20}
+#     }
+# g = Graph(graph_elements)
 
-g = Graph(graph_elements)
-
-g.add_edge('A', 'C', 0)
-g.add_edge('A', 'C', 5)
-g.add_edge('A', 'ABC', 100)
-
-g.get_neighbors('efg')
-
-
-
-
-
-
-
-
-
-
-
+# print(g.gdict)
