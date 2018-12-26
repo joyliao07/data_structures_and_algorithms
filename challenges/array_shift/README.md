@@ -1,9 +1,9 @@
-## Code Challenge - Array_shift
-401python code challenge 02
+## Array_shift
 
 
 Author: Joyce Liao
 Version: 1.0.0
+
 
 
 # OVERVIEW

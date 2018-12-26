@@ -1,11 +1,10 @@
 # Linked List
 
 
-401python code challenge 12
-
-
 Author: Joyce Liao
 Version: 1.0.0
+
+
 
 
 ## OVERVIEW
@@ -36,4 +35,4 @@ The program can be run with python3.6 installation and can be best operated in a
 
 
 
-2018-12-11 code challenge 02
+2018-12-11

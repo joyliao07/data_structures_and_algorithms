@@ -1,11 +1,6 @@
 # Binary_Search_Tree. Breadth_First_Traversal
 
 
-401python code lab 15
-401python code challenge 17
-401python code challenge 18
-
-
 Author: Joyce Liao
 Version: 1.0.0
 

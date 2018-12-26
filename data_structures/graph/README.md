@@ -1,5 +1,4 @@
 # Binary_Search_Tree. Breadth_First_Traversal
-401python lab 20
 
 
 Author: Joyce Liao
@@ -33,4 +32,4 @@ The program can be run with python3.6 installation and can be best operated in a
 
 
 
-Date: 2018-12-21
+2018-12-21

@@ -1,25 +1,13 @@
 # data_structures_and_algorithms
-folder for 401python daily code challenges
+
 
 Author: Joyce Liao
 Version: 1.0.0
 
 
+
 ## List of Data Structures & Algorithms:
-Code Challenge 02: Insert and shift an array in middle at index
-GitHub Repo Link: https://github.com/joyliao07/data_structures_and_algorithms
 
-Code Challenge 03:
-GitHub Repo Link: 
-
-Code Challenge 04:
-GitHub Repo Link: 
-
-Code Challenge 05:
-GitHub Repo Link: 
-
-Code Challenge 06:
-GitHub Repo Link: 
 
 
 ##Below is the detailed instruction from class repo:

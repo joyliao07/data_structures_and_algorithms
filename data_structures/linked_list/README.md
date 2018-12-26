@@ -1,10 +1,9 @@
 # Linked List
-401python code 05
-401python code challenge 06
-401python code challenge 07
+
 
 Author: Joyce Liao
 Version: 1.0.0
+
 
 
 ## OVERVIEW
@@ -48,6 +47,6 @@ The program can be run with python3.6 installation and can be best operated in a
 
 
 
-2018-11-30 code 05
-2018-12-03 code challenge 06
-2018-12-04 code challenge 07
+2018-11-30
+2018-12-03
+2018-12-04

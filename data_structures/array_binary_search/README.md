@@ -1,8 +1,9 @@
-# Code Challenge - Array_binary_search
-401python code challenge 03
+# Array_binary_search
+
 
 Author: Joyce Liao
 Version: 1.0.0
+
 
 
 ## OVERVIEW

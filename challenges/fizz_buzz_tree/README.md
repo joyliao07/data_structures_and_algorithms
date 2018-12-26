@@ -1,11 +1,9 @@
 # Linked List
 
 
-401python code challenge 16
-
-
 Author: Joyce Liao
 Version: 1.0.0
+
 
 
 ## OVERVIEW
