@@ -1,4 +1,4 @@
-# Array_binary_search
+# ARRAY_BINARY_SEARCH
 
 
 Author: Joyce Liao

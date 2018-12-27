@@ -1,4 +1,4 @@
-# Binary_Search_Tree. Breadth_First_Traversal
+# BINARY_SEARCH_TREEE. BREADTH_FIRST_TRAVERSAL
 
 
 Author: Joyce Liao
@@ -27,10 +27,10 @@ The program can be run with python3.6 installation and can be best operated in a
 7. The class has a method to find maximum value in the tree
 
 
-![whiteboarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/breadth_first_traversal/assets/17_breadth_first.jpeg)
+![whiteboarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/master/assets/17_breadth_first.jpeg)
 
 
-![whiteboarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/find-maximum-value-binary-tree/assets/18_find_maximum_value.jpeg)
+![whiteboarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/master/assets/18_find_maximum_value.jpeg)
 
 
 

@@ -1,4 +1,4 @@
-# Linked List
+# MULTI_BRACKET_VALIDATION
 
 
 Author: Joyce Liao
@@ -18,7 +18,7 @@ The program can be run with python3.6 installation and can be best operated in a
 The function takes a string as input and return True or False.
 To validate the multi-bracket, the function needs to loop through the string and validate specifically the closing brackets.
 
-![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/multi-bracket-validation/assets/13_multi_brackets.jpeg)
+![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/master/assets/13_multi_brackets.jpeg)
 
 
 

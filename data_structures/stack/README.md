@@ -1,4 +1,4 @@
-# Linked List
+# STACKS
 
 
 Author: Joyce Liao

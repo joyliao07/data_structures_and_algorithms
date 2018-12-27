@@ -1,4 +1,4 @@
-# Linked List
+# LINKED_LIST
 
 
 Author: Joyce Liao
@@ -29,7 +29,8 @@ The program can be run with python3.6 installation and can be best operated in a
 ![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/master/assets/06_ll_insertions_(2).jpeg)
 
     2.6 Define method "kth_from_end"
-![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/ll_kth_from_end/assets/07_ll_kth_from_end.jpeg)
+
+![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/master/assets/07_ll_kth_from_end.jpeg)
 
 
 

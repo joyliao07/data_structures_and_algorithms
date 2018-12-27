@@ -1,4 +1,4 @@
-# Linked List
+# QUEUES WITH STACKS
 
 
 Author: Joyce Liao

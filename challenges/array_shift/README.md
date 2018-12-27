@@ -1,4 +1,4 @@
-## Array_shift
+## ARRAY_SHIFT
 
 
 Author: Joyce Liao

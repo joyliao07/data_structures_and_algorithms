@@ -1,4 +1,4 @@
-# Linked List
+# QUEUES
 
 
 Author: Joyce Liao

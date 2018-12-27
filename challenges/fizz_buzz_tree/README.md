@@ -1,4 +1,4 @@
-# Linked List
+# BINARY_TREE_FIZZ_BUZZ
 
 
 Author: Joyce Liao
@@ -21,7 +21,7 @@ The program can be run with python3.6 installation and can be best operated in a
 4. Create method fizz_buzz_tree which traverse through the tree and transform the node's values to "Fizz", "Buzz", or "FizzBuzz"
 
 
-![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/FizzBuzzTree/assets/16_fizz_buzz.jpeg)
+![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/master/assets/16_fizz_buzz.jpeg)
 
 
 
