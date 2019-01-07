@@ -1,5 +1,5 @@
 """This module will contain class Graph and its related methods."""
-from ..graph import Graph
+from ..breadth_first import Graph
 from .conftest import graph_empty, graph_one, graph_two
 import pytest
 
