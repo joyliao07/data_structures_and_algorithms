@@ -115,3 +115,24 @@ def test_get_neighbors_with_valid_not_exist(graph_one):
     with pytest.raises(KeyError) as err:
         graph_one.get_neighbors('Abc')
         assert str(err.value) == "The vert does not exist."
+
+
+def test_breadth_first_graph_one(graph_one, capsys):
+    """To test breadth_first method with valid input."""
+    graph_one.breadth_first('A')
+    captured = capsys.readouterr()
+    assert captured.out == 'A\nB\nD\nC\nE\nF\n'
+
+
+def test_breadth_first_graph_two(graph_two, capsys):
+    """To test breadth_first method with valid input."""
+    graph_two.breadth_first('A')
+    captured = capsys.readouterr()
+    assert captured.out == 'A\nB\nC\nD\nE\nF\nG\n'
+
+
+def test_breadth_first_empty(graph_empty, capsys):
+    """To test breadth_first method with empty input."""
+    with pytest.raises(TypeError) as err:
+        graph_empty.breadth_first()
+        assert str(err.value) == "There is no node to traverse."

@@ -69,9 +69,30 @@ class Graph:
         print(self.gdict[val].keys())
         return self.gdict[val].keys()
 
+    def breadth_first(self, node=None):
+        if node is None:
+            print(f'There is no node to traverse.')
+            raise TypeError(f'There is no node to traverse.')
+        else:
+            visited = {}
+            for i in self.gdict.keys():
+                visited[i] = 'Yay'
+
+            queue = []
+            queue.append(node)
+            visited[node] = 'Nay'
+
+            while queue:
+                popped = queue.pop(0)
+                print(popped)
+                for what in self.gdict[popped]:
+                    if visited[what] == 'Yay':
+                        queue.append(what)
+                        visited[what] = 'Nay'
+
 
 # graph_elements = {
-#         'A': {'B': 10, 'C': 15},
+#         'A': {'B': 10, 'C': 15, 'E': 0},
 #         'B': {'D': 15, 'E': 5, 'C': 2},
 #         'C': {'F': 50, 'G': 25},
 #         'D': {},
@@ -81,4 +102,4 @@ class Graph:
 #     }
 # g = Graph(graph_elements)
 
-# print(g.gdict)
+# g.breadth_first('A')
