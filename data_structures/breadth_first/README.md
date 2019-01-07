@@ -21,7 +21,9 @@ The program can be run with python3.6 installation and can be best operated in a
 4. Add method has_vert
 5. Add method add_vert
 6. Add method get_neighbors
+7. Add breadth_first
 
+![whiteboarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/master/assets/26_breadth_first_graph.jpeg)
 
 
 ## API
@@ -32,4 +34,4 @@ The program can be run with python3.6 installation and can be best operated in a
 
 
 
-2018-12-21
+2019-01-07
