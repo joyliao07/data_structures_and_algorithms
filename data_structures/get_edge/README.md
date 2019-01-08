@@ -22,7 +22,7 @@ The program can be run with python3.6 installation and can be best operated in a
 5. Add method add_vert
 6. Add method get_neighbors
 
-
+![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/master/assets/27_get_edge.jpeg)
 
 ## API
 
