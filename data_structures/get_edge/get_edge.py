@@ -44,11 +44,8 @@ class Graph:
     def has_vert(self, val):
         """
         """
-        if val in self.gdict:
-            print(True)
-            return(True)
-        print(False)
-        return(False)
+        # This is a boolean itself:
+        return val in self.gdict
 
     def add_edge(self, v1, v2, weight):
         """
@@ -93,36 +90,36 @@ class Graph:
     def flight_cost(self, node1=None, node2=None, node3=None):
         if node1 not in self.gdict.keys() or node2 not in self.gdict.keys():
             print('Invalid itinerary.')
+            raise KeyError(False, '$0')
         else:
             cost = 0
             if node2 not in self.gdict[node1]:
                 print(False, '$', cost)
-                return(False, '$', cost)
+                raise KeyError(False, '$', cost)
             else:
                 cost += self.gdict[node1][node2]
 
                 if node3 is not None and node3 not in self.gdict.keys():
                     print(False, '$', cost)
-                    return(False, '$', cost)
+                    raise KeyError(False, '$', cost)
                 elif node3 in self.gdict.keys() and node3 not in self.gdict[node2]:
                     print(False, '$', cost)
-                    return(False, '$', cost)
+                    raise KeyError(False, '$', cost)
                 elif node3 in self.gdict.keys() and node3 in self.gdict[node2]:
                     cost += self.gdict[node2][node3]
                 
                 print(True, '$', cost)
+                return(True, '$', cost)
 
 
-map = {
-        'Pandora': {'Arendelle': 150, 'Metroville': 82},
-        'Arendelle': {'Pandora': 150, 'Metroville': 99, 'New Monstropolis': 42},
-        'Metroville': {'Pandora': 82, 'Arendelle': 99, 'New Monstropolis': 105, 'Naboo': 26, 'Narnia': 37},
-        'New Monstropolis': {'Arendelle': 42, 'Metroville': 105, 'Naboo': 73},
-        'Naboo': {'New Monstropolis': 73, 'Metroville': 26, 'Narnia': 250},
-        'Narnia': {'Metroville': 37, 'Naboo': 250}
-    }
-g = Graph(map)
+# map = {
+#         'Pandora': {'Arendelle': 150, 'Metroville': 82},
+#         'Arendelle': {'Pandora': 150, 'Metroville': 99, 'New Monstropolis': 42},
+#         'Metroville': {'Pandora': 82, 'Arendelle': 99, 'New Monstropolis': 105, 'Naboo': 26, 'Narnia': 37},
+#         'New Monstropolis': {'Arendelle': 42, 'Metroville': 105, 'Naboo': 73},
+#         'Naboo': {'New Monstropolis': 73, 'Metroville': 26, 'Narnia': 250},
+#         'Narnia': {'Metroville': 37, 'Naboo': 250}
+#     }
+# g = Graph(map)
 
-
-
-g.flight_cost('Arendelle', 'Pandora')
+# g.flight_cost('Arendelle', 'Pandora')

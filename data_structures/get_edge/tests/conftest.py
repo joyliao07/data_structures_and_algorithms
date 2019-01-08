@@ -1,7 +1,7 @@
 """This module will contain fixtures to test graph.py."""
 
 import pytest
-from ..graph import Graph
+from ..get_edge import Graph
 
 
 @pytest.fixture()
@@ -36,4 +36,18 @@ def graph_two():
         'F': {'E': 10},
         'G': {'F': 20}
     }
+    return g
+
+
+@pytest.fixture()
+def graph_map():
+    map = {
+            'Pandora': {'Arendelle': 150, 'Metroville': 82},
+            'Arendelle': {'Pandora': 150, 'Metroville': 99, 'New Monstropolis': 42},
+            'Metroville': {'Pandora': 82, 'Arendelle': 99, 'New Monstropolis': 105, 'Naboo': 26, 'Narnia': 37},
+            'New Monstropolis': {'Arendelle': 42, 'Metroville': 105, 'Naboo': 73},
+            'Naboo': {'New Monstropolis': 73, 'Metroville': 26, 'Narnia': 250},
+            'Narnia': {'Metroville': 37, 'Naboo': 250}
+        }
+    g = Graph(map)
     return g

@@ -1,6 +1,6 @@
 """This module will contain class Graph and its related methods."""
-from ..graph import Graph
-from .conftest import graph_empty, graph_one, graph_two
+from ..get_edge import Graph
+from .conftest import graph_empty, graph_one, graph_two, graph_map
 import pytest
 
 
@@ -60,7 +60,7 @@ def test_add_vert_with_list_value(graph_one):
     """To test add_vert method with invalid input of a list."""
     with pytest.raises(KeyError) as err:
         graph_one.add_vert([1, 2])
-        assert str(err.value) == 'Val must be a string or a number.'
+    assert str(err.value) == "'Val must be a string or a number.'"
 
 
 def test_add_vert_with_dict_value(graph_one):
@@ -95,7 +95,7 @@ def test_add_edge_with_vert_not_exist(graph_one):
     """To test add_edge method with valid input."""
     with pytest.raises(KeyError) as err:
         graph_one.add_edge('Abc', 'C', 100)
-        assert str(err.value) == "The vert does not exist."
+    assert str(err.value) == "'The vert does not exist.'"
 
 
 def test_add_edge_with_empty_val(graph_one):
@@ -114,7 +114,7 @@ def test_get_neighbors_with_valid_not_exist(graph_one):
     """To test get_neighbors method with valid input."""
     with pytest.raises(KeyError) as err:
         graph_one.get_neighbors('Abc')
-        assert str(err.value) == "The vert does not exist."
+    assert str(err.value) == "'There is no existing vert.'"
 
 
 def test_breadth_first_graph_one(graph_one, capsys):
@@ -135,4 +135,25 @@ def test_breadth_first_empty(graph_empty, capsys):
     """To test breadth_first method with empty input."""
     with pytest.raises(TypeError) as err:
         graph_empty.breadth_first()
-        assert str(err.value) == "There is no node to traverse."
+    assert str(err.value) == 'There is no node to traverse.'
+
+
+def test_flight_cost_test_1(graph_map, capsys):
+    """To test flight_cost method with valid input."""
+    graph_map.flight_cost('Pandora', 'Arendelle')
+    captured = capsys.readouterr()
+    assert captured.out == 'True $ 150\n'
+
+
+def test_flight_cost_test_2(graph_map, capsys):
+    """To test flight_cost method with valid input."""
+    graph_map.flight_cost('Arendelle', 'New Monstropolis', 'Naboo')
+    captured = capsys.readouterr()
+    assert captured.out == 'True $ 115\n'
+
+
+def test_flight_cost_error(graph_map):
+    """To test flight_cost method with invalid input."""
+    with pytest.raises(KeyError) as err:
+        graph_map.flight_cost('Pandora', 'Naboo')
+    assert str(err.value) == "(False, '$', 0)"
