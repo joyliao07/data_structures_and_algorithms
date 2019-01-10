@@ -111,46 +111,31 @@ class Graph:
                 print(True, '$', cost)
                 return(True, '$', cost)
 
-    # def depth_recursive(self, node, visited, stack):
-    #     if visited[node] == 'New':
-    #         print(node)
-    #         stack.append(node)
-    #         visited.append(node)
-    #     for what in self.gdict[node]:
-    #         if what not in visited:
-    #             stack.append(what)
-    #             print('stack is: ', stack)
-    #             print('back to recursion')
-    #             self.depth_recursive(what, visited, stack)
-
     def depth_first_traversal(self, node):
 
         visited = []
-        stack = []
+        
+        def walk(node):
+            if node in visited:
+                return
+            print(node)
+            visited.append(node)
+
+            for neighbor in self.gdict[node].keys():
+                if neighbor not in visited:
+                    walk(neighbor)
 
         if node not in self.gdict.keys():
             print('Node does not exist.')
             raise KeyError('Node does not exist.')
         else:
-            if node not in visited:
-                print(node)
-                stack.append(node)
-                visited.append(node)
-
-
-
-
-
-
-
-
-
+            walk(node)
 
 map = {
         'A': {'B':0, 'D':0},
-        'B': {'A':0, 'D':0, 'C':0},
+        'B': {'A':0, 'C':0, 'D':0},
         'C': {'B':0, 'G':0},
-        'D': {'A':0, 'B':0, 'E':0, 'F':0, 'H':0},
+        'D': {'A':0, 'B':0, 'E':0, 'H':0, 'F':0},
         'E': {'D':0},
         'F': {'D':0, 'H':0},
         'G': {'C':0},
