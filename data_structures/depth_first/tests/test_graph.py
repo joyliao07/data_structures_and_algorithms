@@ -1,5 +1,5 @@
 """This module will contain class Graph and its related methods."""
-from ..get_edge import Graph
+from ..depth_first import Graph
 from .conftest import graph_empty, graph_one, graph_two, graph_map
 import pytest
 
@@ -157,3 +157,17 @@ def test_flight_cost_error(graph_map):
     with pytest.raises(KeyError) as err:
         graph_map.flight_cost('Pandora', 'Naboo')
     assert str(err.value) == "(False, '$', 0)"
+
+
+def test_depth_first_empty(graph_empty, capsys):
+    """To test depth_first method with empty input."""
+    with pytest.raises(KeyError) as err:
+        graph_empty.depth_first_traversal(None)
+    assert str(err.value) == "'Node does not exist.'"
+
+
+def test_depth_first_traversal_graph_three(graph_three, capsys):
+    """To test depth_first_traversal method with valid input."""
+    graph_three.depth_first_traversal('A')
+    captured = capsys.readouterr()
+    assert captured.out == 'A\nB\nC\nG\nD\nE\nH\nF\n'

@@ -1,7 +1,7 @@
 """This module will contain fixtures to test graph.py."""
 
 import pytest
-from ..get_edge import Graph
+from ..depth_first import Graph
 
 
 @pytest.fixture()
@@ -51,3 +51,19 @@ def graph_map():
         }
     g = Graph(map)
     return g
+
+@pytest.fixture()
+def graph_three():
+    dictionary = {
+        'A': {'B': 0, 'D': 0},
+        'B': {'A': 0, 'C': 0, 'D': 0},
+        'C': {'B': 0, 'G': 0},
+        'D': {'A': 0, 'B': 0, 'E': 0, 'H': 0, 'F': 0},
+        'E': {'D': 0},
+        'F': {'D': 0, 'H': 0},
+        'G': {'C': 0},
+        'H': {'F': 0, 'D': 0},
+        }
+    g = Graph(dictionary)
+    return g
+    
