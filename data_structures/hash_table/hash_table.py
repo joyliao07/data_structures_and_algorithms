@@ -5,80 +5,87 @@ class Hash(object):
     """
     """
     def __init__(self, iterable=None):
-        # if iterable is None:
-        #     iterable = {}
+        if iterable is None:
+            iterable = []
 
-        # if type(iterable) is not dict:
-        #     raise TypeError('Iterable is not a dictionary.')
+        if type(iterable) is not list:
+            raise TypeError('Iterable is not a list.')
 
-        # self.gdict = iterable
-        # self.graph = iterable
+        self.len = 0
+        self.lst = []
+
+        for what in iterable:
+            self.add_hash(what)
 
     def __repr__(self):
-        # output = f'<List of vertices: { self.gdict.keys() }>'
-        output = f'<repr string...>'
+        output = f'<Hash table list: { self.lst }>'
         return output
 
     def __str__(self):
-        # output = f'The list of vertices are: {self.gdict.keys()}'
-        output = f'Str...'
+        output = f'Hash table length is { self.len }'
         return output
 
-    def __len__(self):
-        # return len(self.gdict.keys())
-        return
-
-    def create_hash(self, val):
+    def add_hash(self, val):
         """
         """
-        # What is the format of input?
-        # if type(val) is not float and type(val) is not str:
-        #     print('Val must be a string or a number.')
-        #     raise KeyError('Val must be a string or a number.')
-        # if val in self.gdict:
-        #     print('Vert already exists.')
-        #     raise KeyError('Vert already exists.')
+        if type(val) is not list:
+            raise TypeError('Iterable is not a list with one key and one value.')
 
-        # self.gdict[val] = {}
+        if len(val) != 2:
+            raise KeyError('Iterable is not a list with one key and one value.')
 
-    # def has_vert(self, val):
-    #     """
-    #     """
-    #     # This is a boolean itself:
-    #     return val in self.gdict
+        # To obtain the index number:
+        key = val[0]
+        key_list = list(key)
+        hash_num = 0
+        for what in key_list:
+            hash_num += ord(what)
+        ind = hash_num // 10
 
-    # def add_edge(self, v1, v2, weight):
-    #     """
-    #     """
-    #     if v1 not in self.gdict:
-    #         print('The vert does not exist.')
-    #         raise KeyError('The vert does not exist.')
-    #     self.gdict[v1][v2] = weight
-    #     print(self.gdict) 
-    #     return self.gdict
+        # If self.len is too short:
+        if self.len <= ind:
+            add = ind - self.len
+            for what in range(add):
+                self.lst.append([])
+            self.len += add
 
-    # def get_neighbors(self, val):
-    #     """
-    #     """
-    #     if val not in self.gdict:
-    #         print('There is no existing vert.')
-    #         raise KeyError('There is no existing vert.')
-    #     print(self.gdict[val].keys())
-    #     return self.gdict[val].keys()
+        # To append the key-value pair:
+        for what in self.lst[(ind-1)]:
+            if what[0] == key:
+                raise KeyError('Duplicated key.')
+
+        self.lst[(ind-1)].append(val)
+
+    def retrieve_val(self, key):
+        """
+        """
+        # To obtain the index number:
+        if key is None:
+            raise TypeError('No key to look for.')
+
+        key_list = list(key)
+        hash_num = 0
+        for what in key_list:
+            hash_num += ord(what)
+        ind = hash_num // 10
+
+        if ind > self.len:
+            print('No matching key is found.')
+            return('No matching key is found.')
+
+        for what in self.lst[(ind-1)]:
+            if what[0] == key:
+                print(what[1])
+                return(what[1])
+
+        print('No matching key is found')
+        return('No matching key is found')
 
 
+# h = Hash([['apple', 1], ['apple2', 2], ['banana', 3]])
 
+# print(h.lst)
+# print(str(h))
+# print(repr(h))
 
-map = {
-        'A': {'B':0, 'D':0},
-        'B': {'A':0, 'C':0, 'D':0},
-        'C': {'B':0, 'G':0},
-        'D': {'A':0, 'B':0, 'E':0, 'H':0, 'F':0},
-        'E': {'D':0},
-        'F': {'D':0, 'H':0},
-        'G': {'C':0},
-        'H': {'F':0, 'D':0},
-    }
-g = Graph(map)
-
-g.depth_first_traversal('A')
+# h.retrieve_val('banana')
