@@ -13,6 +13,7 @@ class Hash(object):
 
         self.len = 0
         self.lst = []
+        self.repeat = False
 
         for what in iterable:
             self.add_hash(what)
@@ -84,6 +85,11 @@ class Hash(object):
     def add_word(self, val):
         """
         """
+        if val[0] is None:
+            raise TypeError('No word in the string.')
+
+        if self.repeat is True:
+            return
         # To obtain the index number:
         key = val[0]
         key_list = list(key)
@@ -102,6 +108,7 @@ class Hash(object):
         # To append the key-value pair:
         for what in self.lst[(ind-1)]:
             if what[0] == key:
+                self.repeat = True
                 print(what[0])
                 return what[0]
 
@@ -110,20 +117,25 @@ class Hash(object):
     def paragraph(self, string):
         """
         """
-        remove_punctuation = string.split(" ")
-        words_list = string.split(" ")
+        if type(string) is not str:
+            raise TypeError('Input is not a string.')
+        
+        if string is '':
+            raise TypeError('No word in the string.')
+        
+        remove_punct = string.replace(',', '').replace('.', '').replace(';', '').replace('!', '').replace('+', '').lower()
+        words_list = remove_punct.split(" ")
         for word in words_list:
-            print(word)
+            lst = [word, None]
+            self.add_word(lst)
+        if self.repeat is False:
+            print('There is no repeated word in the paragraph.')
+            return('There is no repeated word in the paragraph.')
 
 
-
-string = "Today is a wonderful day."
-
-h = Hash()
-
-h.paragraph(string)
-
-
+# string = "apple"
+# h = Hash()
+# h.add_word(string)
 
 # h = Hash([['apple', 1], ['apple2', 2], ['banana', 3]])
 
