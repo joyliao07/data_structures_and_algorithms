@@ -114,7 +114,7 @@ class Hash(object):
 
         self.lst[(ind-1)].append(val)
 
-    def paragraph(self, string):
+    def repeated_word(self, string):
         """
         """
         if type(string) is not str:

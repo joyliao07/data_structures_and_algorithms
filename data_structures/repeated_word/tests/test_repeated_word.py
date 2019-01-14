@@ -81,27 +81,27 @@ def test_add_word_with_empty_key():
     assert str(err.value) == 'No word in the string.'
 
 
-def test_paragraph_with_empty_string():
-    """To test paragraph method with an empty string."""
+def test_repeated_word_with_empty_string():
+    """To test repeated_word method with an empty string."""
     h = Hash()
     with pytest.raises(TypeError) as err:
-        h.paragraph('')
+        h.repeated_word('')
     assert str(err.value) == 'No word in the string.'
 
 
-def test_paragraph_with_repeated_word(capsys):
-    """To test paragraph method with repeated word in a string."""
+def test_repeated_word_with_repeated_word(capsys):
+    """To test repeated_word method with repeated word in a string."""
     h = Hash()
     string = "Every day is a good day is a wonderful day."
-    h.paragraph(string)
+    h.repeated_word(string)
     captured = capsys.readouterr()
     assert captured.out == 'day\n'
 
 
-def test_paragraph_with_non_string():
-    """To test paragraph method with a non-string."""
+def test_repeated_word_with_non_string():
+    """To test repeated_word method with a non-string."""
     h = Hash()
     string = ['abc', None]
     with pytest.raises(TypeError) as err:
-        h.paragraph(string)
+        h.repeated_word(string)
     assert str(err.value) == 'Input is not a string.'
