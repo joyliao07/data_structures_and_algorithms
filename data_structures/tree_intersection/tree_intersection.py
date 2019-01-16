@@ -22,6 +22,7 @@ class BST(object):
         self.root = None
         self._size = 0
         self.set_one = set()
+        self.shared = set()
 
         if iterable is None:
             iterable = []
@@ -121,20 +122,33 @@ class BST(object):
             if node.right:
                 self.post_order_set(node.right)
             self.set_one.add(node.val)
-            print(node.val)
-            print(self.set_one)
+
+    def post_order_intersection(self, node=None):
+        if node is None:
+            raise TypeError(f'There is no node to traverse.')
+        else:
+            if node.left:
+                self.post_order_intersection(node.left)
+            if node.right:
+                self.post_order_intersection(node.right)
+            if node.val in self.set_one:
+                self.shared.add(node.val)
     
     def tree_intersection(self, tree_two):
+        # To populate self.set_one:
         self.set_one = set()
-        self.post_order_set(tree_two.root)
-        return
+        self.post_order_set(self.root)
+        print('set_one is: ', self.set_one)
+        
+        # To populate self.shared:
+        self.shared = set()
+        self.post_order_intersection(tree_two.root)
+        print('shared is: ', self.shared)
 
 
-tree_one = BST([10, 12, 11, 15, 20, 17])
-tree_two = BST([40, 15, 47, 20, 30, 50, 65])
-
+# tree_one = BST([10, 12, 11, 15, 20, 17])
+# tree_two = BST([40, 15, 47, 20, 30, 50, 65])
 # tree_one.tree_intersection(tree_two)
-tree_one.tree_intersection(tree_two)
 
-# IN-ORDER BASED ON [10, 12, 11, 15, 20, 17]: 10, 11, 12, 15, 17, 20
-# PRE-ORDER BASED ON [10, 12, 11, 15, 20, 17]: 10, 12, 11, 15, 20, 17
+# TREE_ONE SET_ONE BASED ON [11, 17, 20, 15, 12, 10]: {10, 11, 12, 15, 17, 20}
+# TREE_TWO SET_ONE BASED ON [30, 20, 15, 65, 50, 47, 40]: {65, 40, 15, 47, 50, 20, 30}

@@ -1,5 +1,5 @@
 """This module will test result of class BST and its methods."""
-from ..binary_search_tree import NodeTree, NodeQueue, Queue, BST
+from ..tree_intersection import NodeTree, BST
 import pytest
 
 
@@ -64,7 +64,7 @@ def test_in_order_with_empty_input():
     tree_new = BST()
     with pytest.raises(TypeError) as err:
         tree_new.in_order_traversal(tree_new.root)
-        assert str(err.value) == (f'There is no node to traverse.')
+    assert str(err.value) == (f'There is no node to traverse.')
 
 
 def test_in_order_with_valid_input(capsys):
@@ -88,7 +88,7 @@ def test_pre_order_with_empty_input():
     tree_new = BST()
     with pytest.raises(TypeError) as err:
         tree_new.pre_order_traversal(tree_new.root)
-        assert str(err.value) == (f'There is no node to traverse.')
+    assert str(err.value) == (f'There is no node to traverse.')
 
 
 def test_pre_order_with_valid_input(capsys):
@@ -112,7 +112,7 @@ def test_post_order_with_empty_input():
     tree_new = BST()
     with pytest.raises(TypeError) as err:
         tree_new.post_order_traversal(tree_new.root)
-        assert str(err.value) == (f'There is no node to traverse.')
+    assert str(err.value) == (f'There is no node to traverse.')
 
 
 def test_post_order_with_valid_input(capsys):
@@ -131,57 +131,67 @@ def test_post_order_with_valid_input_edge_case(capsys):
     assert captured.out == '10\n'
 
 
-def test_breadth_first_with_valid_input(capsys):
-    """To test breadth_first method with valid input."""
-    tree_new = BST([10, 12, 11, 15, 20, 17])
-    tree_new.breadth_first(tree_new.root)
-    captured = capsys.readouterr()
-    assert captured.out == '10\n12\n11\n15\n20\n17\n'
+def test_post_order_set_with_valid_input():
+    """To test post_order_set method with valid input."""
+    tree = BST([10, 12, 11, 15, 20, 17])
+    tree.post_order_set(tree.root)
+    assert tree.set_one == {10, 11, 12, 15, 17, 20}
 
 
-def test_breadth_first_with_valid_input_2(capsys):
-    """To test breadth_first method with valid input."""
-    tree_new = BST([40, 15, 47, 20, 30, 50, 65])
-    tree_new.breadth_first(tree_new.root)
-    captured = capsys.readouterr()
-    assert captured.out == '40\n15\n47\n20\n50\n30\n65\n'
-
-
-def test_breadth_first_with_empty_input():
-    """To test breadth_first method with an empty tree."""
-    tree_new = BST()
+def test_post_order_set_with_empty_input():
+    """To test post_order_set method with an empty tree."""
+    tree = BST()
     with pytest.raises(TypeError) as err:
-        tree_new.breadth_first(tree_new.root)
-        assert str(err.value) == (f'There is no node to traverse.')
+        tree.post_order_set(tree.root)
+    assert str(err.value) == (f'There is no node to traverse.')
 
 
-def test_breadth_first_with_valid_input_edge_case(capsys):
-    """To test breadth_first method with valid input."""
-    tree_new = BST([10])
-    tree_new.breadth_first(tree_new.root)
-    captured = capsys.readouterr()
-    assert captured.out == '10\n'
+def test_post_order_intersection_with_valid_input():
+    """To test post_order_intersection method with valid inputs."""
+    tree_one = BST([10, 12, 11, 15, 20, 17])
+    tree_two = BST([40, 15, 47, 20, 30, 50, 65])
+    tree_one.post_order_set(tree_one.root)
+    tree_one.post_order_intersection(tree_two.root)
+    assert tree_one.shared == {20, 15}
 
 
-def test_find_max_value_with_valid_input_edge_case(capsys):
-    """To test find_max_value method with valid input."""
-    tree_new = BST([10])
-    tree_new.find_maximum_value(tree_new.root)
-    captured = capsys.readouterr()
-    assert captured.out == '10\n'
+def test_post_order_intersection_with_nothing_match():
+    """To test post_order_intersection method with nothing match."""
+    tree_one = BST([10, 12, 11, 15, 20, 17])
+    tree_two = BST([40, 47, 30, 50, 65])
+    tree_one.post_order_set(tree_one.root)
+    tree_one.post_order_intersection(tree_two.root)
+    assert tree_one.shared == set()
 
 
-def test_find_max_value_with_valid_input(capsys):
-    """To test find_max_value method with valid input."""
-    tree_new = BST([40, 15, 47, 20, 30, 50, 65])
-    tree_new.find_maximum_value(tree_new.root)
-    captured = capsys.readouterr()
-    assert captured.out == '65\n'
-
-
-def test_find_max_value_with_empty_input():
-    """To test find_max_value method with an empty tree."""
-    tree_new = BST()
+def test_post_order_intersection_with_empty_input():
+    """To test post_order_intersection method with an empty tree."""
+    tree = BST()
     with pytest.raises(TypeError) as err:
-        tree_new.find_maximum_value(tree_new.root)
-        assert str(err.value) == (f'There is no node to traverse.')
+        tree.post_order_intersection(tree.root)
+    assert str(err.value) == (f'There is no node to traverse.')
+
+
+def test_tree_intersection_with_empty_input():
+    """To test tree_intersection method with an empty tree."""
+    tree_one = BST([10, 12, 11, 15, 20, 17])
+    tree_two = BST()
+    with pytest.raises(TypeError) as err:
+        tree_one.tree_intersection(tree_two)
+    assert str(err.value) == (f'There is no node to traverse.')
+
+
+def test_tree_intersection_with_valid_input():
+    """To test tree_intersection method with valid input."""
+    tree_one = BST([10, 12, 11, 15, 20, 17])
+    tree_two = BST([40, 15, 47, 20, 30, 50, 65])
+    tree_one.tree_intersection(tree_two)
+    assert tree_one.shared == {20, 15}
+
+
+def test_tree_intersection_with_nothing_match():
+    """To test tree_intersection method with nothing match."""
+    tree_one = BST([10, 12, 11, 15, 20, 17])
+    tree_two = BST([40, 47, 30, 50, 65])
+    tree_one.tree_intersection(tree_two)
+    assert tree_one.shared == set()

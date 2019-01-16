@@ -1,4 +1,4 @@
-# BINARY_SEARCH_TREEE. BREADTH_FIRST_TRAVERSAL
+# BINARY_TREEE: TREE_INTERSECTION
 
 
 Author: Joyce Liao
@@ -8,13 +8,13 @@ Version: 1.0.0
 
 
 ## OVERVIEW
-- Create a function that produces and traverse binary trees.
-- Create a function that performs breadth-first traversal to a binary tree.
-- Create a function that finds the max value in the binary tree.
+Class BST and its related methods.
+
 
 
 ## GETTING STARTED
-The program can be run with python3.6 installation and can be best operated in a terminal.
+The program can be run with python3.6 installation and can be operated in a terminal.
+
 
 
 ## ARCHITECTURE
@@ -22,15 +22,12 @@ The program can be run with python3.6 installation and can be best operated in a
 2. Create a Class for a BST, which is aware of the root of the tree as "root"
 3. This class should accept an iterable as an argument when initialized
 4. This class should be aware of depth-first traversal methods for in_order, pre_order, and post_order traversals
-5. This class should have the ability to insert
-6. The class has a method for breadth-first traversal
-7. The class has a method to find maximum value in the tree
+5. This class should have method tree_intersection that takes in two binary trees as input, and return a set of shared elements between this two trees.
 
 
-![whiteboarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/master/assets/17_breadth_first.jpeg)
 
+![whiteboarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/tree_intersection/assets/32_tree_intersection.jpeg)
 
-![whiteboarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/master/assets/18_find_maximum_value.jpeg)
 
 
 
@@ -43,7 +40,4 @@ The program can be run with python3.6 installation and can be best operated in a
 
 
 
-Date: 2018-12-14
-Date: 2018-12-18
-Date: 2018-12-19
-
+Date: 2019-01-15
