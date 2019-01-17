@@ -47,20 +47,43 @@ def test_retrieve_val_with_empty_value():
     assert str(err.value) == 'No key to look for.'
 
 
-def test_retrieve_val_with_valie_value_1():
+def test_retrieve_val_with_valid_value_1():
     """To test retrieve_val method with valid input."""
     h = Hash([["apple", 300], ['banana', 15]])
     assert h.retrieve_val('apple') == 300
 
 
-def test_retrieve_val_with_valie_value_2():
+def test_retrieve_val_with_valid_value_2():
     """To test retrieve_val method with valid input."""
     h = Hash([["apple", 300], ['banana', 15]])
     h.add_hash(['cranberry', 45])
     assert h.retrieve_val('cranberry') == 45
 
 
-def test_retrieve_val_with_valie_not_exist():
-    """To test retrieve_val method with valid input."""
+def test_retrieve_val_with_value_not_exist():
+    """To test retrieve_val method with no matching key."""
     h = Hash([["apple", 300], ['banana', 15]])
     assert h.retrieve_val('cranberry') == 'No matching key is found.'
+
+
+def test_left_join_with_valid_value():
+    """To test left_join method with valid input."""
+    h1 = Hash([["apple", '3 apples from bucket 1'], ['banana', '4 bananas from bucket 1']])
+    h2 = Hash([["apple", '5 apples from bucket 2'], ['banana', '2 bananas from bucket 2']])
+    assert h1.left_join(h2) == [['apple', '3 apples from bucket 1', '5 apples from bucket 2'], ['banana', '4 bananas from bucket 1', '2 bananas from bucket 2']]
+
+
+def test_left_join_with_some_value_not_in_h2():
+    """To test left_join method with valid input."""
+    h1 = Hash([["apple", '3 apples from bucket 1'], ['banana', '4 bananas from bucket 1'], ['cranberries', '20 cranberries from bucket 1']])
+    h2 = Hash([["apple", '5 apples from bucket 2'], ['banana', '2 bananas from bucket 2']])
+    assert h1.left_join(h2) == [['apple', '3 apples from bucket 1', '5 apples from bucket 2'], ['banana', '4 bananas from bucket 1', '2 bananas from bucket 2'], ['cranberries', '20 cranberries from bucket 1', 'Null']]
+
+
+def test_left_join_with_missing_key():
+    """To test left_join method with valid input."""
+    h1 = Hash()
+    h2 = Hash([["apple", '5 apples from bucket 2'], ['banana', '2 bananas from bucket 2']])
+    with pytest.raises(TypeError) as err:
+        h1.left_join(h2)
+    assert str(err.value) == 'No key to look for.'

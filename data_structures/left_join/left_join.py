@@ -70,35 +70,45 @@ class Hash(object):
         ind = hash_num // 10
 
         if ind > self.len:
-            print('No matching key is found.')
+            # print('No matching key is found.')
             return('No matching key is found.')
 
         for what in self.lst[(ind-1)]:
             if what[0] == key:
-                print(what[1])
+                # print(what[1])
                 return(what[1])
 
-        print('No matching key is found')
-        return('No matching key is found')
+        # print('No matching key is found.')
+        return('No matching key is found.')
 
     def left_join(self, h2):
-        print('left join here')
+        if self.lst == []:
+            raise TypeError('No key to look for.')
         shared = []
-        for pair in self.lst:
-            if len(pair) >= 1:
-                for what in pair:
-                    if pair[0] not in shared:
-                        print('add: ', what)
-                        # shared.add(pair)
+        for place in self.lst:
+            if len(place) >= 1:
+                for what in place:
+                    if what[0] not in shared:
+                        shared.append(what)
+
+        for pair in shared:
+            retrieved_from_h2 = h2.retrieve_val(pair[0])
+            print(retrieved_from_h2)
+            if retrieved_from_h2 == 'No matching key is found.':
+                pair.append('Null')
+            else:
+                # append value
+                pair.append(retrieved_from_h2)
+        # print(shared)
+        return(shared)
 
 
-
-h = Hash([['apple', 1], ['apple2', 2], ['banana', 3]])
-h2 = Hash([['apple', 'apple in h2'], ['apple2', 'more apples in h2']])
-
+# h1 = Hash([['apple', 1], ['apple2', 2], ['banana', 3]])
+# h1 = Hash()
+# h2 = Hash([['apple', 'apple in h2'], ['apple2', 'more apples in h2']])
 
 # print(h.lst)
 # print(str(h))
 # print(repr(h))
 
-h.left_join(h2)
+# h1.left_join(h2)
