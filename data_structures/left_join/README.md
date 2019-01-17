@@ -22,7 +22,7 @@ The program can be run with python3.6 installation and can be best operated in a
 5. Add method left_join
 
 
-![White Boarding]()
+![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/left_join/assets/33_left_join.jpeg)
 
 ## API
 
