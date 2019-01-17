@@ -81,11 +81,24 @@ class Hash(object):
         print('No matching key is found')
         return('No matching key is found')
 
+    def left_join(self, h2):
+        print('left join here')
+        shared = []
+        for pair in self.lst:
+            if len(pair) >= 1:
+                for what in pair:
+                    if pair[0] not in shared:
+                        print('add: ', what)
+                        # shared.add(pair)
 
-# h = Hash([['apple', 1], ['apple2', 2], ['banana', 3]])
+
+
+h = Hash([['apple', 1], ['apple2', 2], ['banana', 3]])
+h2 = Hash([['apple', 'apple in h2'], ['apple2', 'more apples in h2']])
+
 
 # print(h.lst)
 # print(str(h))
 # print(repr(h))
 
-# h.retrieve_val('banana')
+h.left_join(h2)
