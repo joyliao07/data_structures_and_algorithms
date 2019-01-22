@@ -52,3 +52,18 @@ def test_sort_with_letter():
     with pytest.raises(TypeError) as err:
         s.selection()
     assert str(err.value) == 'Items must be integers.'
+
+
+def test_mergeSort_with_list():
+    """To test mergeSort method with a list."""
+    s = Sort([3, 2, 7, 4, -11, 6, 5, -15])
+    s.mergeSort()
+    assert s.lst == [-15, -11, 2, 3, 4, 5, 6, 7]
+
+
+def test_mergeSort_with_letter():
+    """To test mergeSort method with a list that contains a letter."""
+    s = Sort([3, 2, 7, 4, -11, 6, 5, -15, 'l'])
+    with pytest.raises(TypeError) as err:
+        s.mergeSort()
+    assert str(err.value) == 'Items must be integers.'
