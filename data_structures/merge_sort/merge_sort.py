@@ -39,7 +39,8 @@ class Sort(object):
         return(self.lst)
 
     def mergeSort(self):
-        print('argument is: ', self.lst)
+        """Tutorial: https://www.geeksforgeeks.org/python-program-for-merge-sort/"""
+        # print('argument is: ', self.lst)
         for i in self.lst:
             if isinstance(i, str):
                 raise TypeError('Items must be integers.') 
