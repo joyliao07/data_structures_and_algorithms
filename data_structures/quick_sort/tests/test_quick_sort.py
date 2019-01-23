@@ -1,5 +1,5 @@
 """This module will contain class Sort and its related methods."""
-from ..merge_sort import Sort
+from ..quick_sort import Sort
 import pytest
 
 
@@ -67,3 +67,25 @@ def test_mergeSort_with_letter():
     with pytest.raises(TypeError) as err:
         s.mergeSort()
     assert str(err.value) == 'Items must be integers.'
+
+
+def test_quickSort_with_letter():
+    """To test quickSort method with a list that contains a letter."""
+    s = Sort([3, 2, 7, 4, -11, 6, 5, -15, 'l'])
+    with pytest.raises(TypeError) as err:
+        s.quickSort()
+    assert str(err.value) == 'Items must be integers.'
+
+
+def test_quickSort_with_list():
+    """To test quickSort method with a list."""
+    s = Sort([3, 2, 7, 4, 6, 5])
+    s.quickSort()
+    assert s.lst == [2, 3, 4, 5, 6, 7]
+
+
+def test_quickSort_with_list_and_negative_value():
+    """To test quickSort method with a list."""
+    s = Sort([3, 2, 7, 4, -11, 6, 5, -15])
+    s.quickSort()
+    assert s.lst == [-15, -11, 2, 3, 4, 5, 6, 7]

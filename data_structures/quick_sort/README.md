@@ -1,4 +1,4 @@
-# SORTING_ALGOS: SELECTION SORT
+# SORTING_ALGOS: QUICK SORT
 
 
 Author: Joyce Liao
@@ -17,6 +17,9 @@ The program can be run with python3.6 installation and can be best operated in a
 ## ARCHITECTURE
 1. Create class Sort
 2. Create method selection
+3. Create method mergeSort
+4. Create method quickSort
+
 
 
 ![White Boarding]()
@@ -29,4 +32,4 @@ The program can be run with python3.6 installation and can be best operated in a
 
 
 
-2019-01-18
+2019-01-22

@@ -86,26 +86,38 @@ class Sort(object):
                 k = k + 1
 
     def quickSort(self):
-        print('quicksort')
+        """Follow the tutorial: http://www.geekviewpoint.com/python/sorting/quicksort"""
+        for i in self.lst:
+            if isinstance(i, str):
+                raise TypeError('Items must be integers.')
         self._quicksort(0, (len(self.lst)-1))
 
     def _quicksort(self, first, last):
         """Helper function for quickSort."""
         if first < last:
+            # print('call partition: ', first, last)
             pivot = self.partition(first, last)
+            # print('call _quick: ', first, pivot -1)
             self._quicksort(first, pivot - 1)
+            # print('call _quick: ', pivot + 1, last)
             self._quicksort(pivot + 1, last)
 
     def partition(self, first, last):
         """Helper function for quickSort."""
         pivot = first + random.randrange(last - first + 1)
+        # print('pivot is: ', pivot)
+        # print('pivot - last: swap ', self.lst[pivot], ' with ', self.lst[last])
         self.swap(pivot, last)
         for i in range(first, last):
+            # print('i is: ', i, ' first is: ', first)
             if self.lst[i] <= self.lst[last]:
+                # print('i - first: swap ', self.lst[i], ' with ', self.lst[first])
                 self.swap(i, first)
                 first += 1
 
+        # print('first - last: swap ', self.lst[first], ' with ', self.lst[last])
         self.swap(first, last)
+        # print('return first: ', first)
         return first
 
     def swap(self, x, y):
@@ -113,7 +125,7 @@ class Sort(object):
         self.lst[x], self.lst[y] = self.lst[y], self.lst[x]
 
 
-inpu = Sort([2, 1, 11, 4, 5, -11])
+# inpu = Sort([2, 1, 11, 4, 5])
 
-inpu.quickSort()
-print(inpu.lst)
+# inpu.quickSort()
+# print(inpu.lst)
