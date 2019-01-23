@@ -21,7 +21,7 @@ The program can be run with python3.6 installation and can be best operated in a
 
 
 
-![White Boarding]()
+![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/quicksort/assets/35_mergesort.jpeg)
 
 ## API
 
