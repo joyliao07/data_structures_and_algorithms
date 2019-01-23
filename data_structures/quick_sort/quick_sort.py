@@ -86,7 +86,7 @@ class Sort(object):
                 k = k + 1
 
     def quickSort(self):
-        """Follow the tutorial: http://www.geekviewpoint.com/python/sorting/quicksort"""
+        """Tutorial: http://www.geekviewpoint.com/python/sorting/quicksort"""
         for i in self.lst:
             if isinstance(i, str):
                 raise TypeError('Items must be integers.')
