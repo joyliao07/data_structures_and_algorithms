@@ -1,4 +1,4 @@
-# SORTING_ALGOS: QUICK SORT
+# SORTING_ALGOS: RADIX_SORT
 
 
 Author: Joyce Liao
@@ -20,10 +20,11 @@ The program can be run with python3.6 installation and can be best operated in a
 2. Create method selection
 3. Create method mergeSort (Tutorial: https://www.geeksforgeeks.org/python-program-for-merge-sort)
 4. Create method quickSort (Tutorial: http://www.geekviewpoint.com/python/sorting/quicksort)
+5. Create method radixSort (Tutorial: https://www.geeksforgeeks.org/radix-sort/)
 
 
 
-![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/quicksort/assets/37_quicksort.jpeg)
+![White Boarding](https://github.com/joyliao07/data_structures_and_algorithms/blob/radix_sort/assets/38_radixsort.jpeg)
 
 ## API
 
