@@ -19,8 +19,8 @@ class Sort(object):
         return output
 
     def __str__(self):
-        # output = f'Input list length is { self.len }'
-        output = f'Input list is { self.lst }'
+        output = f'Input list length is { self.len }'
+        # output = f'Input list is { self.lst }'
         return output
 
     def selection(self):
@@ -41,7 +41,6 @@ class Sort(object):
 
     def mergeSort(self):
         """Tutorial: https://www.geeksforgeeks.org/python-program-for-merge-sort/"""
-        # print('argument is: ', self.lst)
         for i in self.lst:
             if isinstance(i, str):
                 raise TypeError('Items must be integers.') 
@@ -57,30 +56,37 @@ class Sort(object):
             i = 0
             j = 0
             k = 0
+            result = []
             while i < len(lefthalf.lst) and j < len(righthalf.lst):
                 if lefthalf.lst[i] < righthalf.lst[j]:
                     self.lst[k] = lefthalf.lst[i]
+                    result.append(lefthalf.lst[i])
                     i = i + 1
                 else:
                     self.lst[k] = righthalf.lst[j]
+                    result.append(righthalf.lst[j])
                     j = j + 1
                 k = k + 1
 
             while i < len(lefthalf.lst):
+                result.append(lefthalf.lst[i])
                 self.lst[k] = lefthalf.lst[i]
                 i = i + 1
                 k = k + 1
 
             while j < len(righthalf.lst):
                 self.lst[k] = righthalf.lst[j]
+                result.append(righthalf.lst[j])
                 j = j + 1
                 k = k + 1
+            return result
 
 
 
 
-inpu = Sort([2, 1, 11, 4, 5, -11])
+# inpu = Sort([12, 11, 5, 7, 9])
 
-inpu.mergeSort()
+# inpu.mergeSort()
 
-print(inpu)
+# print(inpu)
+# print(inpu.mergeSort())
