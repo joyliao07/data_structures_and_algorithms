@@ -19,7 +19,8 @@ class Sort(object):
         return output
 
     def __str__(self):
-        output = f'Input list length is { self.len }'
+        # output = f'Input list length is { self.len }'
+        output = f'Input list is { self.lst }'
         return output
 
     def selection(self):
@@ -57,30 +58,20 @@ class Sort(object):
             j = 0
             k = 0
             while i < len(lefthalf.lst) and j < len(righthalf.lst):
-                # print('in while loop, self.lst is: ', self.lst)
-                # print('first loop position i is: ', i)
                 if lefthalf.lst[i] < righthalf.lst[j]:
-                    print('first loop position i is: ', i)
-                    print('make self.lst[k] to be lefthalf.lst[i]: ', self.lst[k], lefthalf.lst[i])
                     self.lst[k] = lefthalf.lst[i]
                     i = i + 1
                 else:
-                    # print('first loop position j is: ', j)
-                    # print('make self.lst[k] to be righthalf.lst[i]: ', self.lst[k], righthalf.lst[j])
                     self.lst[k] = righthalf.lst[j]
                     j = j + 1
                 k = k + 1
 
             while i < len(lefthalf.lst):
-                # print('2nd loop position i is: ', i)
-                # print('make self.lst[k] to be lefthalf.lst[i]: ', self.lst[k], lefthalf.lst[i])
                 self.lst[k] = lefthalf.lst[i]
                 i = i + 1
                 k = k + 1
 
             while j < len(righthalf.lst):
-                # print('3rd loop position j is: ', j)
-                # print('make self.lst[k] to be lefthalf.lst[i]: ', self.lst[k], righthalf.lst[j])
                 self.lst[k] = righthalf.lst[j]
                 j = j + 1
                 k = k + 1
@@ -88,7 +79,8 @@ class Sort(object):
 
 
 
-# inpu = Sort([2, 1, 11, 4, 5, -11])
+inpu = Sort([2, 1, 11, 4, 5, -11])
 
-# inpu.mergeSort()
+inpu.mergeSort()
 
+print(inpu)
