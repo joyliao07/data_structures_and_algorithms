@@ -140,32 +140,37 @@ class Sort(object):
             exp *= 10
 
     def radix_helper(self, exp):
-        n = len(self.lst)
 
         # To create output list:
-        output = [0] * (n)
+        output = [0] * len(self.lst)
 
         # To create 10 query buckets:
-        count = [0] * (10)
+        count = [0] * 10
 
         # Store count of occurrences in count[]
 
-        # n = 5 the length of array:
-        for i in range(0, n):
+        # To get the digit => In count[i], there is x items in the bucket:
+        for i in range(0, len(self.lst)):
             index = (self.lst[i]/exp)
+            # print('int(index % 10) is: ', int(index % 10))
             count[int((index) % 10)] += 1
+        print('count is: ', count)
 
-        # To reassign count[i] to help building the output:
+        # Accumulated count[i]:
         for i in range(1, 10):
             count[i] += count[i-1]
+        print('count is: ', count)
 
         # To build the output:
-        i = n - 1
+        i = len(self.lst) - 1
+        print('i is, ', i)
         while i >= 0:
             index = (self.lst[i]/exp)
+            print('int((index) % 10) is', int((index) % 10))
             output[int(count[int((index) % 10)] - 1)] = self.lst[i]
             count[int((index) % 10)] -= 1
             i -= 1
+        print('output is: ', output)
 
         # To make the list copy the output list:
         i = 0
@@ -173,8 +178,8 @@ class Sort(object):
             self.lst[i] = output[i]
 
 
-# inpu = Sort([2, 41, -5, 9, 11, 5])
+inpu = Sort([2, 41, 9, 11])
 
-# inpu.radixSort()
+inpu.radixSort()
 
-# print(inpu.lst)
+print(inpu.lst)

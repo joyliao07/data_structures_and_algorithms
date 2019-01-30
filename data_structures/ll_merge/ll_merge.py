@@ -82,49 +82,50 @@ def ll_merge(ll_A, ll_B):
     """
     A = ll_A.head
     B = ll_B.head
-    new = LinkedList()
+    # new = LinkedList()
 
-    current = new.head
+    current = None
     while A or B:
         if A:
             if current is None:
                 current = Node(A.val)
+                new_head = current
                 A = A._next
             else:
                 current._next = Node(A.val)
                 current = current._next
                 A = A._next
-            
-            new.append(current.val)
-            
+
+            # new.append(A.val)
+            # A = A._next
+
         if B:
             current._next = Node(B.val)
             current = current._next
             B = B._next
 
-            new.append(current.val)
-    
-    # print('start to print:')
-    # # import pdb; pdb.set_trace()
-    # to_print = new.head
-    # while to_print:
-    #     print(to_print.val)
-    #     to_print = to_print._next
-    return new
+            # new.append(B.val)
+            # B = B._next
+
+    return new_head
 
 #####################################
 ###   Call function to print:     ###
 ###                               ###
 #####################################
 
-# ll_A = LinkedList([1, 2, 3, 4, 5])
-# ll_B = LinkedList(['A', 'B', 'C'])
+ll_A = LinkedList([1, 2])
+ll_B = LinkedList(['A', 'B', 'C'])
 
 # ll_merge(ll_A, ll_B)
+print(ll_merge(ll_A, ll_B))
+print(ll_merge(ll_A, ll_B)._next)
+print(ll_merge(ll_A, ll_B)._next._next)
+print(ll_merge(ll_A, ll_B)._next._next._next)
+print(ll_merge(ll_A, ll_B)._next._next._next._next)
 
 
-
-
+# See https://codereview.stackexchange.com/questions/113670/merge-two-linked-lists-in-python
 
 
 
