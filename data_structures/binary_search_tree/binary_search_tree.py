@@ -109,38 +109,26 @@ class BST(object):
     def add_node(self, val):
         """
         """
-        # print('line 50 start to create new node: ', val)
         if self.root is None:
             self.root = NodeTree(val)
-            # print('root is created outside insersion: ', self.root.val)
             return
 
         def insersion(node, val):
-            # print('line 57 start to insert val: ', val)
             if node is None:
                 node = NodeTree(val)
-                # print('line 60 root is created: ', node.val)
                 return
             if node.val < val:
-                # print('line 63 node.val is: ', node.val)
                 if node.right is None:
                     node.right = NodeTree(val)
-                    # print('line 66 created node.right: ', node.right.val)
                     return
                 else:
-                    # print('line 68 to call insersion and pass in node.right: ', node.right.val)
-                    # print('line 69 to call insersion and pass in val: ', val)
                     insersion(node.right, val)
                     return
             elif node.val > val:
-                # print('line 72 node.val is: ', node.val)
                 if node.left is None:
                     node.left = NodeTree(val)
-                    # print('line 75 created node.left: ', node.left.val)
                     return
                 else:
-                    # print('line 77 to call insersion and pass in node.left: ', node.left.val)
-                    # print('line 78 to call insersion and pass in val: ', val)
                     insersion(node.left, val)
                     return
 
